@@ -1,11 +1,7 @@
-"use client"
-
-import type React from "react"
-
 import { Mail } from "lucide-react"
 import { useState } from "react"
 
-export function TopSection() {
+export function Introduction() {
   const [email, setEmail] = useState("")
   const [isSubscribed, setIsSubscribed] = useState(false)
 
@@ -64,7 +60,7 @@ export function TopSection() {
                 />
                 <button
                   type="submit"
-                  className="rounded-full bg-black text-white hover:bg-gray-800 px-8 py-6 text-lg whitespace-nowrap"
+                  className="rounded-full bg-black text-white hover:bg-gray-800 px-8 py-6 text-lg whitespace-nowrap cursor-pointer flex items-center justify-center"
                 >
                   <Mail className="mr-2 h-5 w-5" />
                   Subscribe Now
@@ -82,7 +78,7 @@ export function TopSection() {
           <div className="relative">
             <div className="relative aspect-square overflow-hidden rounded-full border-8 border-primary shadow-2xl">
               <img
-                src="/premium-electric-bike-with-visible-gps-tracker-dev.jpg"
+                src="/intro-ebookike.jpg"
                 alt="Protected E-Bike with Recoveride GPS Tracking"
                 className="h-full w-full object-cover"
               />

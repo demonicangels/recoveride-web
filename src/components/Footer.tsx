@@ -1,6 +1,4 @@
-"use client"
-
-import { Facebook, Instagram, Twitter, ArrowUp } from "lucide-react"
+import {Instagram, ArrowUp } from "lucide-react"
 
 export function Footer() {
   const scrollToTop = () => {
@@ -54,7 +52,7 @@ export function Footer() {
                   About Us
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
                   Careers
                 </a>
@@ -63,7 +61,7 @@ export function Footer() {
                 <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
                   Press
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href="#contact" className="text-muted-foreground transition-colors hover:text-primary">
                   Contact
@@ -85,11 +83,11 @@ export function Footer() {
                   Terms of Service
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
                   Cookie Policy
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -97,18 +95,12 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">© 2025 Recoveride. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="#" className="text-muted-foreground transition-colors hover:text-primary" aria-label="Facebook">
-              <Facebook className="h-5 w-5" />
-            </a>
             <a
               href="#"
               className="text-muted-foreground transition-colors hover:text-primary"
               aria-label="Instagram"
             >
               <Instagram className="h-5 w-5" />
-            </a>
-            <a href="#" className="text-muted-foreground transition-colors hover:text-primary" aria-label="Twitter">
-              <Twitter className="h-5 w-5" />
             </a>
             <a href="#" className="text-muted-foreground transition-colors hover:text-primary" aria-label="aedIn">
               <div className="h-5 w-5" />
