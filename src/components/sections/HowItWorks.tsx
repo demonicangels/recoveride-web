@@ -6,7 +6,7 @@ export function HowItWorksSection() {
   const steps = [
     {
       icon: Package,
-      title: "We Install Your Tracker",
+      title: "We Install Your Tracker (discreetly)",
       description:
         "Receive your compact GPS tracker and relax while we install it discreetly in a hidden location on your e-bike. The tracker stays in standby mode to preserve battery life.",
     },
@@ -14,7 +14,7 @@ export function HowItWorksSection() {
       icon: AlertCircle,
       title: "Simply Report the Theft",
       description:
-        "If your e-bike is stolen, don't worry. Just visit our Report Theft page, share the location, and activate your tracker with one click. We take it from there.",
+        "If your e-bike is stolen, don't worry. Just visit our Report Theft page, confirm the last known location, and activate recovery mode with a single click. We take it from there."
     },
     {
       icon: Radio,
@@ -26,12 +26,12 @@ export function HowItWorksSection() {
       icon: CheckCircle,
       title: "We Handle Everything",
       description:
-        "Our caring team works tirelessly to locate and recover your e-bike. We coordinate with police and insurers on your behalf, keeping you informed every step of the way.",
+        "Our team works to locate and recover your e-bike. We coordinate with police and insurers on your behalf, keeping you informed every step of the way.",
     },
   ]
 
   return (
-    <section id="how-it-works" className="bg-white py-20 md:py-32">
+    <section id="how-it-works" className="bg-white py-20 md:py-32 scroll-mt-24 md:scroll-mt-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-4 text-center">
           <span className="text-lg font-semibold text-primary">How It Works</span>
@@ -60,7 +60,7 @@ export function HowItWorksSection() {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-20 grid gap-8 rounded-3xl bg-primary p-12 text-white md:grid-cols-3">
+        {/* <div className="mt-20 grid gap-8 rounded-3xl bg-primary p-12 text-white md:grid-cols-3">
           <div className="text-center">
             <div className="mb-2 text-5xl font-bold md:text-6xl">95%</div>
             <div className="text-base opacity-90">Recovery Success Rate</div>
@@ -73,7 +73,7 @@ export function HowItWorksSection() {
             <div className="mb-2 text-5xl font-bold md:text-6xl">10k+</div>
             <div className="text-base opacity-90">Protected E-Bikes</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

@@ -1,6 +1,9 @@
 import {Instagram, ArrowUp } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 export function Footer() {
+  const navigate = useNavigate()
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
@@ -22,25 +25,20 @@ export function Footer() {
             <h3 className="mb-4 font-bold text-foreground">Product</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#how-it-works" className="text-muted-foreground transition-colors hover:text-primary">
+                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => navigate({pathname: '/', hash: '#how-it-works'})}>
                   How It Works
                 </a>
               </li>
               <li>
-                <a href="#subscriptions" className="text-muted-foreground transition-colors hover:text-primary">
+                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => navigate({pathname: '/', hash: '#subscriptions'})}>
                   Pricing
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
-                  Features
-                </a>
-              </li>
-              <li>
+              {/* <li>
                 <a href="#" className="text-muted-foreground transition-colors hover:text-primary">
                   FAQ
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -48,7 +46,7 @@ export function Footer() {
             <h3 className="mb-4 font-bold text-foreground">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#about" className="text-muted-foreground transition-colors hover:text-primary">
+                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => navigate("/about")}>
                   About Us
                 </a>
               </li>
@@ -63,7 +61,7 @@ export function Footer() {
                 </a>
               </li> */}
               <li>
-                <a href="#contact" className="text-muted-foreground transition-colors hover:text-primary">
+                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => navigate('/contact')}>
                   Contact
                 </a>
               </li>

@@ -5,16 +5,22 @@ import { Footer } from './components/Footer'
 import { HomePage } from './pages/HomePage'
 import { ReportTheftPage } from './pages/ReportTheftPage'
 import { AboutusPage } from './pages/AboutusPage'
+import { ContactPage } from './pages/ContactPage'
+import { AuthPage } from './pages/AuthPage'
+import { ScrollManager } from './components/ScrollManager'
 
 function App() {
 
   return (
     <Router>
+      <ScrollManager/>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/report-theft" element={<ReportTheftPage />} />
         <Route path="/about" element={<AboutusPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/auth" element={<AuthPage />} />
       </Routes>
       <Footer />
     </Router>

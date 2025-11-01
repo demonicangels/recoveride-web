@@ -106,7 +106,7 @@ export function NewsletterSignup() {
               type="submit"
               variant="contained"
               sx={{
-                px: 4,
+                px: 6,
                 py: 1.5,
                 bgcolor: "black",
                 color: "white",

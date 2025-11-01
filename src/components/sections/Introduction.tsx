@@ -1,5 +1,6 @@
 import { Mail } from "lucide-react"
 import { useState } from "react"
+import Ebike from "../../assets/ebike.png"
 
 export function Introduction() {
   const [email, setEmail] = useState("")
@@ -31,10 +32,10 @@ export function Introduction() {
 
             <h1 className="mb-6 text-balance">
               <span className="block text-4xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                WE HANDLE RECOVERY
+                WE DO THE RECOVERY
               </span>
-              <span className="block text-4xl font-bold uppercase tracking-tight text-primary md:text-5xl lg:text-5xl">
-                YOU CONTINUE ON THE BIKE TRACK 
+              <span className="block text-4xl font-bold uppercase tracking-tight text-primary md:text-5xl lg:text-6xl">
+                YOU DO THE RIDING
               </span>
             </h1>
 
@@ -42,7 +43,7 @@ export function Introduction() {
 
             <p className="mb-8 text-pretty text-lg leading-relaxed text-muted-foreground">
               We take the stress out of bike theft by handling the recovery process so e-bike owners can get back on the
-              road faster. Our caring team manages everything from tracking to police coordination.
+              road faster. Our team handles everything from bike location tracking to police coordination.
             </p>
 
             <div className="mb-4">
@@ -78,7 +79,7 @@ export function Introduction() {
           <div className="relative">
             <div className="relative aspect-square overflow-hidden rounded-full border-8 border-primary shadow-2xl">
               <img
-                src="/intro-ebookike.jpg"
+                src={Ebike}
                 alt="Protected E-Bike with Recoveride GPS Tracking"
                 className="h-full w-full object-cover"
               />

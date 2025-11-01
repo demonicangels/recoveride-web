@@ -10,9 +10,9 @@ import {
   ListItemIcon,
   ListItemText,
   Chip,
-  Grid,
 } from "@mui/material"
 import { Check } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 export function SubscriptionsSection() {
   const plans = [
@@ -23,9 +23,8 @@ export function SubscriptionsSection() {
       description: "Essential protection for your e-bike",
       features: [
         "GPS tracker included",
-        "Real-time location tracking",
-        "Theft alerts",
-        "Mobile app access",
+        "Real-time location tracking via fin my app",
+        "Police reporting assistance",
         "Email support",
       ],
       popular: false,
@@ -37,11 +36,10 @@ export function SubscriptionsSection() {
       description: "Complete protection with recovery service",
       features: [
         "Everything in Basic",
-        "Professional recovery team",
-        "Police coordination",
-        "Insurance support",
+        "Bike recovery services",
+        "Assistance in police/insurer documents",
         "24/7 priority support",
-        "Extended battery life",
+        "Extended GPS battery life",
       ],
       popular: true,
     },
@@ -53,14 +51,18 @@ export function SubscriptionsSection() {
       features: [
         "Everything in Premium",
         "Up to 4 GPS trackers",
-        "Family dashboard",
         "Multi-bike management",
-        "Dedicated account manager",
-        "Annual maintenance check",
+        "Maintenance check every 2 years",
       ],
       popular: false,
     },
   ]
+
+  const navigate = useNavigate()
+
+  const handleGetStarted = () => {
+    navigate("/auth")
+  }
 
   return (
     <Box component="section" id="subscriptions" sx={{ bgcolor: "#F9FAFB", py: { xs: 10, md: 16 } }}>
@@ -79,96 +81,105 @@ export function SubscriptionsSection() {
           </Typography>
         </Box>
 
-        <Grid container spacing={4} justifyContent="center">
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", lg: "repeat(3, 1fr)" },
+            gap: 4,
+          }}
+        >
           {plans.map((plan, index) => (
-            <Grid key={index}>
-              <Card
-                sx={{
-                  position: "relative",
-                  border: "none",
-                  boxShadow: 3,
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  bgcolor: plan.popular ? "white" : "secondary.main",
-                  ...(plan.popular && {
-                    outline: "4px solid",
-                    outlineColor: "primary.main",
-                    zIndex: 1,
-                  }),
-                }}
-              >
-                {plan.popular && (
-                  <Box sx={{ position: "absolute", top: 10, left: "50%", transform: "translateX(-50%)", zIndex: 10 }}>
-                    <Chip
-                      label="Most Popular"
-                      sx={{
-                        bgcolor: "primary.main",
-                        color: "white",
-                        fontWeight: "bold",
-                        px: 2,
-                        py: 1,
-                        boxShadow: 2,
-                        textAlign: "center",
-                      }}
-                    />
-                  </Box>
-                )}
-                <CardContent sx={{ textAlign: "center", pb: 2, flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                  <Typography variant="h5" sx={{ mb: 1, fontWeight: "bold" }}>
-                    {plan.name}
-                  </Typography>
-                  <Box sx={{ mb: 1 }}>
-                    <Typography component="span" variant="h3" sx={{ fontWeight: "bold" }}>
-                      {plan.price}
-                    </Typography>
-                    <Typography component="span" variant="body1" sx={{ color: "text.secondary" }}>
-                      {" "}
-                      {plan.period}
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" sx={{ color: "text.secondary", mb: 3 }}>
-                    {plan.description}
-                  </Typography>
-
-                  <List sx={{ mb: 3, flexGrow: 1 }}>
-                    {plan.features.map((feature, featureIndex) => (
-                      <ListItem key={featureIndex} disablePadding sx={{ mb: 1.5 }}>
-                        <ListItemIcon sx={{ minWidth: 32 }}>
-                          <Check size={20} color="#4FD1C5" />
-                        </ListItemIcon>
-                        <ListItemText
-                          primary={feature}
-                          primaryTypographyProps={{
-                            variant: "body2",
-                            sx: { lineHeight: 1.7 },
-                          }}
-                        />
-                      </ListItem>
-                    ))}
-                  </List>
-
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    href="#contact"
+            <Card
+              key={index}
+              sx={{
+                position: "relative",
+                border: "none",
+                boxShadow: 3,
+                height: "100%",
+                display: "flex",
+                padding: 0,
+                flexDirection: "column",
+                bgcolor: "white",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                "&:hover": {
+                  transform: "translateY(-8px)",
+                  boxShadow: 6,
+                },
+                ...(plan.popular && {
+                  outline: "4px solid",
+                  outlineColor: "primary.main",
+                }),
+                overflow: "visible",
+              }}
+            >
+              {plan.popular && (
+                <Box sx={{ position: "absolute", top: 0, left: "50%", transform: "translate(-50%, -50%)", zIndex: 10 }}>
+                  <Chip
+                    label="Most Popular"
                     sx={{
-                      borderRadius: "50px",
-                      py: 1.5,
-                      bgcolor: plan.popular ? "black" : "primary.main",
+                      bgcolor: "primary.main",
                       color: "white",
-                      "&:hover": {
-                        bgcolor: plan.popular ? "#374151" : "primary.dark",
-                      },
+                      fontWeight: "bold",
+                      px: 2,
+                      py: 1,
+                      boxShadow: 2,
                     }}
-                  >
-                    Get Started
-                  </Button>
-                </CardContent>
-              </Card>
-            </Grid>
+                  />
+                </Box>
+              )}
+              
+              <CardContent sx={{ textAlign: "center", pb: 2, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                <Typography variant="h5" sx={{ mb: 1, fontWeight: "bold" }}>
+                  {plan.name}
+                </Typography>
+                <Box sx={{ mb: 1 }}>
+                  <Typography component="span" variant="h3" sx={{ fontWeight: "bold" }}>
+                    {plan.price}
+                  </Typography>
+                  <Typography component="span" variant="body1" sx={{ color: "text.secondary" }}>
+                    {" "}
+                    {plan.period}
+                  </Typography>
+                </Box>
+                <Typography variant="body2" sx={{ color: "text.secondary", mb: 3 }}>
+                  {plan.description}
+                </Typography>
+
+                <List sx={{ mb: 3, flexGrow: 1 }}>
+                  {plan.features.map((feature, featureIndex) => (
+                    <ListItem key={featureIndex} disablePadding sx={{ mb: 1.5 }}>
+                      <ListItemIcon sx={{ minWidth: 32 }}>
+                        <Check size={20} color="#4FD1C5" />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={feature}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+
+                <Button
+                  variant="contained"
+                  fullWidth
+                  href="#contact"
+                  sx={{
+                    borderRadius: "50px",
+                    py: 1.5,
+                    bgcolor: plan.popular ? "black" : "primary.main",
+                    color: "white",
+                    "&:hover": {
+                      bgcolor: plan.popular ? "#374151" : "primary.dark",
+                    },
+                  }}
+                  onClick={() => handleGetStarted()}
+                >
+                  Get Started
+                </Button>
+              </CardContent>
+            </Card>
           ))}
-        </Grid>
+        </Box>
+
 
         <Typography variant="body2" sx={{ mt: 4, textAlign: "center", color: "text.secondary" }}>
           All prices include VAT. Cancel anytime, no questions asked.
