@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@mui/material"
-import { Users, Award, Heart } from "lucide-react"
+// import { Card, CardContent } from "@mui/material"
+// import { Users, Award, Heart } from "lucide-react"
 
 export function AboutusPage() {
 
@@ -20,14 +20,9 @@ export function AboutusPage() {
           <div>
             <div className="space-y-4 text-muted-foreground">
               <p className="text-pretty text-base leading-relaxed">
-                Founded in Amsterdam in 2020, Recoveride was born from a simple belief: e-bike owners deserve peace of
+                Founded in Eindhoven in 2025, Recoveride was born from a simple belief: e-bike owners deserve peace of
                 mind and support when the unexpected happens. We understand the stress and frustration of bike theft,
                 and we're here to take that burden off your shoulders.
-              </p>
-              <p className="text-pretty text-base leading-relaxed">
-                Today, we care for over 10,000 e-bikes across the Netherlands with our discreetly hidden GPS tracking
-                technology and compassionate recovery team. Our trackers can be installed in multiple hidden locations
-                on your e-bike, making them virtually undetectable to thieves while giving you complete peace of mind.
               </p>
               <p className="text-pretty text-base leading-relaxed">
                 We work closely with local police departments and insurance companies, handling all coordination and
@@ -37,7 +32,7 @@ export function AboutusPage() {
               </p>
             </div>
 
-            <div className="mt-8 grid gap-6 sm:grid-cols-3">
+            {/* <div className="mt-8 grid gap-6 sm:grid-cols-3">
               <Card className="border-none bg-secondary/50 shadow-md">
                 <CardContent className="pt-6 text-center">
                   <Users className="mx-auto mb-2 h-8 w-8 text-primary" />
@@ -59,7 +54,7 @@ export function AboutusPage() {
                   <div className="text-sm text-muted-foreground">Customer Rating</div>
                 </CardContent>
               </Card>
-            </div>
+            </div> */}
           </div>
 
           <div className="space-y-6">
@@ -70,7 +65,7 @@ export function AboutusPage() {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="grid gap-6 sm:grid-cols-2">
+            {/* <div className="grid gap-6 sm:grid-cols-2">
               <div className="aspect-video overflow-hidden rounded-2xl border-4 border-primary/20 bg-muted shadow-md">
                 <img
                   src="/gps-tracker-device-close-up-on-bike.jpg"
@@ -85,7 +80,7 @@ export function AboutusPage() {
                   className="h-full w-full object-cover"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

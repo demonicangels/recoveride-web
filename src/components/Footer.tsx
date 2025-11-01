@@ -94,11 +94,11 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">© 2025 Recoveride. All rights reserved.</p>
           <div className="flex gap-4">
             <a
-              href="#"
+              href="https://www.instagram.com/recoveridenl/"
               className="text-muted-foreground transition-colors hover:text-primary"
               aria-label="Instagram"
             >
-              <Instagram className="h-5 w-5" />
+              <Instagram className="h-5 w-5"/>
             </a>
             <a href="#" className="text-muted-foreground transition-colors hover:text-primary" aria-label="aedIn">
               <div className="h-5 w-5" />

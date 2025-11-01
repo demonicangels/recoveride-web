@@ -30,13 +30,13 @@ export function Header() {
             Home
           </a>
           <a
-            href="#how-it-works"
+            onClick={() => navigate({ pathname: "/", hash: "#how-it-works" })}
             className="text-base font-medium text-foreground transition-colors hover:bg-gray-300 cursor-pointer"
           >
             How It Works
           </a>
           <a
-            href="#subscriptions"
+            onClick={() => navigate({ pathname: "/", hash: "#subscriptions" })}
             className="text-base font-medium text-foreground transition-colors hover:bg-gray-300 cursor-pointer"
           >
             Subscriptions
@@ -80,14 +80,20 @@ export function Header() {
             <a
               href="#how-it-works"
               className="text-base font-medium text-foreground transition-colors hover:bg-gray-300"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() =>{
+                setMobileMenuOpen(false)
+                navigate({ pathname: "/", hash: "#how-it-works" })
+              }}
             >
               How It Works
             </a>
             <a
               href="#subscriptions"
               className="text-base font-medium text-foreground transition-colors hover:bg-gray-300"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => {
+                setMobileMenuOpen(false)
+                navigate({ pathname: "/", hash: "#subscriptions" })
+              }}
             >
               Subscriptions
             </a>
