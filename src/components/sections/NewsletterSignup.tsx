@@ -1,17 +1,40 @@
 import { Box, Container, Typography, TextField, Button } from "@mui/material"
 import { useState } from "react"
 import { Mail } from "lucide-react"
+import { BrevoAPI } from "../../services/brevoAPI"
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
+  const brevoAPI = new BrevoAPI()
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus("success")
-    setEmail("")
-    setTimeout(() => setStatus("idle"), 3000)
-  }
+  // Handle newsletter subscription
+  async function handleSubmit(e: React.FormEvent) {
+      e.preventDefault()
+      setStatus("success")
+  
+      let name = "";
+  
+      if (email) {
+        const match = email.match(/^([^@]*)@/)
+        if (match) {
+          name = match[1];
+        }
+      }
+  
+      console.log(`Subscribing ${name} with email ${email}`)
+  
+      const response = await brevoAPI.sendSubscriberToBrevo({ name, email })
+  
+      if (response) {
+        console.log("Subscription successful:", response)
+        const result = await brevoAPI.putAllSubscribersInList()
+  
+        result && console.log("All subscribers added to list:", result)
+      }
+  
+      setEmail("")
+    }
 
   return (
     <Box

@@ -1,17 +1,40 @@
 import { Mail } from "lucide-react"
-import { useState } from "react"
+import React, { useState } from "react"
 import Ebike from "../../assets/ebike.png"
+import { BrevoAPI } from "../../services/brevoAPI"
 
 export function Introduction() {
+
   const [email, setEmail] = useState("")
   const [isSubscribed, setIsSubscribed] = useState(false)
+  const brevoAPI = new BrevoAPI()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Handle newsletter subscription
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    // Handle newsletter subscription
     setIsSubscribed(true)
+
+    let name = "";
+
+    if (email) {
+      const match = email.match(/^([^@]*)@/)
+      if (match) {
+        name = match[1];
+      }
+    }
+
+    console.log(`Subscribing ${name} with email ${email}`)
+
+    const response = await brevoAPI.sendSubscriberToBrevo({ name, email })
+
+    if (response) {
+      console.log("Subscription successful:", response)
+      const result = await brevoAPI.putAllSubscribersInList()
+
+      result && console.log("All subscribers added to list:", result)
+    }
+
     setEmail("")
-    setTimeout(() => setIsSubscribed(false), 3000)
   }
 
   return (
@@ -69,7 +92,7 @@ export function Introduction() {
               </form>
               {isSubscribed && (
                 <p className="mt-3 text-sm text-primary font-medium">
-                  ✓ Thank you for subscribing! We'll keep you updated.
+                  Thank you for subscribing! We'll keep you updated.
                 </p>
               )}
             </div>
