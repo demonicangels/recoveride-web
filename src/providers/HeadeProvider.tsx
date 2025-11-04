@@ -3,7 +3,7 @@ import { Header } from "../components/Header"
 
 export const HeaderProvider = () => {
     const location = useLocation();
-    const isLandingPage = location.pathname === "/landing-page";
+    const isLandingPage = location.pathname === "/landing";
 
     return (
         <>

@@ -3,7 +3,7 @@ import { Footer } from "../components/Footer";
 
 export const FooterProvider = () => {
     const location = useLocation();
-    const isLandingPage = location.pathname === "/landing-page";
+    const isLandingPage = location.pathname === "/landing";
 
     return (
         <>

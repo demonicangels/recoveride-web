@@ -53,7 +53,7 @@ export function Header() {
           <button
             className="rounded-full border-2 border-red-600 bg-white text-red-600 hover:bg-red-600 hover:text-white transition-colors font-semibold w-full px-4"
           >
-            <a href="/report-theft" className="flex items-center gap-2" onClick={() => navigate("/report-theft")}>
+            <a href="/report" className="flex items-center gap-2" onClick={() => navigate("/report")}>
               <ShieldAlert className="h-4 w-4" />
               Report Theft
             </a>
@@ -113,7 +113,7 @@ export function Header() {
             </a>
             <button className="rounded-full border-2 border-red-600 bg-white text-red-600 font-semibold">
               <a
-                href="/report-theft"
+                href="/report"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2"
               >
