@@ -20,11 +20,11 @@ function App() {
       <HeaderProvider />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/report-theft" element={<ReportTheftPage />} />
+        <Route path="/report" element={<ReportTheftPage />} />
         <Route path="/about" element={<AboutusPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/auth" element={<AuthPage />} />
-        <Route path="/landing-page" element={<LandingPage />} />
+        <Route path="/landing" element={<LandingPage />} />
       </Routes>
       <FooterProvider />
     </Router>
