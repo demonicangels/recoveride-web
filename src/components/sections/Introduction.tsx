@@ -23,15 +23,11 @@ export function Introduction() {
       }
     }
 
-    console.log(`Subscribing ${name} with email ${email}`)
-
-    const response = await brevoAPI.sendSubscriberToBrevo({ name, email })
+    const response = await brevoAPI.sendSubscriberToBrevo({ email, name })
 
     if (response) {
       console.log("Subscription successful:", response)
-      const result = await brevoAPI.putAllSubscribersInList()
-
-      result && console.log("All subscribers added to list:", result)
+      await brevoAPI.putAllSubscribersInList()
     }
 
     setEmail("")

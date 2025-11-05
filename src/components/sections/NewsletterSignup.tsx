@@ -3,6 +3,7 @@ import { useState } from "react"
 import { Mail } from "lucide-react"
 import { BrevoAPI } from "../../services/brevoAPI"
 
+
 export function NewsletterSignup() {
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
@@ -21,16 +22,12 @@ export function NewsletterSignup() {
           name = match[1];
         }
       }
-  
-      console.log(`Subscribing ${name} with email ${email}`)
-  
-      const response = await brevoAPI.sendSubscriberToBrevo({ name, email })
-  
+
+      const response = await brevoAPI.sendSubscriberToBrevo({ email, name })
+
       if (response) {
         console.log("Subscription successful:", response)
-        const result = await brevoAPI.putAllSubscribersInList()
-  
-        result && console.log("All subscribers added to list:", result)
+        await brevoAPI.putAllSubscribersInList()
       }
   
       setEmail("")
