@@ -1,6 +1,6 @@
 import { Mail } from "lucide-react"
 import React, { useState } from "react"
-import Ebike from "../../assets/ebike.png"
+import Ebike from "../../assets/ebike.jpeg"
 import { BrevoAPI } from "../../services/brevoAPI"
 
 export function Introduction() {

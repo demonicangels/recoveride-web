@@ -1,5 +1,6 @@
 // import { Card, CardContent } from "@mui/material"
 // import { Users, Award, Heart } from "lucide-react"
+import team from "../assets/team.jpg"
 
 export function AboutusPage() {
 
@@ -21,16 +22,52 @@ export function AboutusPage() {
             <div className="space-y-4 text-muted-foreground">
               <p className="text-pretty text-base leading-relaxed">
                 Founded in Eindhoven in 2025, Recoveride was born from a simple belief: e-bike owners deserve peace of
-                mind and support when the unexpected happens. We understand the stress and frustration of bike theft,
+                mind and support when the unexpected happens. We understand the stress and frustration of bike theft as we have experienced it firsthand, 
                 and we're here to take that burden off your shoulders.
               </p>
               <p className="text-pretty text-base leading-relaxed">
-                We work closely with local police departments and insurance companies, handling all coordination and
+                Our team works in collaboration with local police, handling all coordination and
                 communication on your behalf. Our dedicated network of recovery specialists knows the ins and outs of
-                e-bike theft in Dutch cities, and we're committed to getting you back on the road as quickly as possible
-                with a 95% recovery rate.
+                e-bike theft in Dutch cities, and we're committed to getting you back on the road as quickly as possible.
               </p>
             </div>
+
+            <div className="mt-12">
+              <h3 className="mb-6 text-balance text-2xl font-bold tracking-tight">What We Do for You</h3>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <div className="mt-1 shrink-0">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                      <span className="text-sm font-bold">✓</span>
+                    </div>
+                  </div>
+                  <p className="text-pretty text-base leading-relaxed text-muted-foreground">
+                    File police and/or insurance reports instead of you
+                  </p>
+                </div>
+                <div className="flex gap-4">
+                  <div className="mt-1 shrink-0">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                      <span className="text-sm font-bold">✓</span>
+                    </div>
+                  </div>
+                  <p className="text-pretty text-base leading-relaxed text-muted-foreground">
+                    Organize a recovery team of professionals
+                  </p>
+                </div>
+                <div className="flex gap-4">
+                  <div className="mt-1 shrink-0">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                      <span className="text-sm font-bold">✓</span>
+                    </div>
+                  </div>
+                  <p className="text-pretty text-base leading-relaxed text-muted-foreground">
+                    Lawfully recover your bike back to you
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
             {/* <div className="mt-8 grid gap-6 sm:grid-cols-3">
               <Card className="border-none bg-secondary/50 shadow-md">
@@ -55,32 +92,15 @@ export function AboutusPage() {
                 </CardContent>
               </Card>
             </div> */}
-          </div>
 
           <div className="space-y-6">
             <div className="aspect-square overflow-hidden rounded-3xl border-4 border-primary/20 bg-muted shadow-lg">
               <img
-                src="/professional-team-working-on-bike-gps-technology-i.jpg"
+                src={team}
                 alt="Recoveride Team"
                 className="h-full w-full object-cover"
               />
             </div>
-            {/* <div className="grid gap-6 sm:grid-cols-2">
-              <div className="aspect-video overflow-hidden rounded-2xl border-4 border-primary/20 bg-muted shadow-md">
-                <img
-                  src="/gps-tracker-device-close-up-on-bike.jpg"
-                  alt="GPS Tracker"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="aspect-video overflow-hidden rounded-2xl border-4 border-primary/20 bg-muted shadow-md">
-                <img
-                  src="/amsterdam-bike-parking-with-many-bicycles.jpg"
-                  alt="Amsterdam Bikes"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

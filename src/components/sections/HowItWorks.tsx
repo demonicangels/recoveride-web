@@ -1,6 +1,11 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Package, AlertCircle, Radio, CheckCircle } from "lucide-react"
+import recovery_team from "../../assets/recovery_team.jpeg"
+import trackingApp from "../../assets/tracking_app.jpeg"
+import teenwaysBike from "../../assets/tenways.png"
+import reportButton from "../../assets/report_button.png"
+
 
 export function HowItWorksSection() {
   const steps = [
@@ -9,24 +14,29 @@ export function HowItWorksSection() {
       title: "We Install Your Tracker (discreetly)",
       description:
         "Receive your compact GPS tracker and relax while we install it discreetly in a hidden location on your e-bike. The tracker stays in standby mode to preserve battery life.",
+      image: teenwaysBike,
+      hasAnnotations: true,
     },
     {
       icon: AlertCircle,
       title: "Simply Report the Theft",
       description:
-        "If your e-bike is stolen, don't worry. Just visit our Report Theft page, confirm the last known location, and activate recovery mode with a single click. We take it from there."
+        "If your e-bike is stolen, don't worry. Just use the button on the top right of the page to visit our Report Theft page, confirm the last known location, and activate recovery mode with a single click. We take it from there.",
+      image: reportButton,
     },
     {
       icon: Radio,
       title: "We Track in Real-Time",
       description:
         "Once activated, your tracker transmits real-time location data directly to our dedicated recovery team. You can relax knowing we're on the case.",
+      image: trackingApp,
     },
     {
       icon: CheckCircle,
       title: "We Handle Everything",
       description:
         "Our team works to locate and recover your e-bike. We coordinate with police and insurers on your behalf, keeping you informed every step of the way.",
+      image: recovery_team,
     },
   ]
 
@@ -45,17 +55,148 @@ export function HowItWorksSection() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="space-y-12 max-w-5xl mx-auto">
           {steps.map((step, index) => (
-            <Card key={index} className="border-none bg-secondary/50 shadow-md">
-              <CardContent className="pt-8 pb-8">
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md">
-                  <step.icon className="h-8 w-8 text-primary" />
+            <div key={index}>
+              {step.image ? (
+                // Steps with images: card on left, image on right
+                <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="flex-1">
+                    <Card className="border-none bg-secondary/50 shadow-md">
+                      <CardContent className="pt-8 pb-8">
+                        <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md">
+                          <step.icon className="h-8 w-8 text-primary" />
+                        </div>
+                        <h3 className="mb-3 text-xl font-bold text-foreground">{step.title}</h3>
+                        <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  <div className="flex-1 relative">
+                    {step.hasAnnotations ? (
+                      <div className="relative">
+                        <img
+                          src={step.image || "/placeholder.svg"}
+                          alt={step.title}
+                          width={500}
+                          height={350}
+                          className="w-full h-auto rounded-lg"
+                        />
+                        {/* Battery location */}
+                        <div className="absolute top-[36%] left-[10%] flex items-center gap-1">
+                          <span className="bg-white px-2 py-1 rounded text-xs font-semibold text-black shadow-md">
+                            here
+                          </span>
+                          <svg width="60" height="2" className="relative top-0">
+                            <defs>
+                              <marker
+                                id="arrowhead1"
+                                markerWidth="10"
+                                markerHeight="10"
+                                refX="9"
+                                refY="3"
+                                orient="auto"
+                              >
+                                <polygon points="0 0, 10 3, 0 6" fill="black" />
+                              </marker>
+                            </defs>
+                            <line
+                              x1="0"
+                              y1="1"
+                              x2="60"
+                              y2="1"
+                              stroke="black"
+                              strokeWidth="2"
+                              markerEnd="url(#arrowhead1)"
+                            />
+                          </svg>
+                        </div>
+                        {/* Saddle location */}
+                        <div className="absolute top-[20%] right-[35%] flex flex-col items-center gap-1">
+                          <span className="bg-white px-2 py-1 rounded text-xs font-semibold text-black shadow-md">
+                            here
+                          </span>
+                          <svg width="2" height="40" className="relative">
+                            <defs>
+                              <marker
+                                id="arrowhead2"
+                                markerWidth="10"
+                                markerHeight="10"
+                                refX="3"
+                                refY="9"
+                                orient="auto"
+                              >
+                                <polygon points="0 0, 6 10, 3 0" fill="black" />
+                              </marker>
+                            </defs>
+                            <line
+                              x1="1"
+                              y1="0"
+                              x2="1"
+                              y2="40"
+                              stroke="black"
+                              strokeWidth="2"
+                              markerEnd="url(#arrowhead2)"
+                            />
+                          </svg>
+                        </div>
+
+                        {/* Wheel location */}
+                        <div className="absolute top-[61%] left-[5%] flex items-center gap-1">
+                          <span className="bg-white px-2 py-1 rounded text-xs font-semibold text-black shadow-md">
+                            here
+                          </span>
+                          <svg width="80" height="2" className="relative">
+                            <defs>
+                              <marker
+                                id="arrowhead3"
+                                markerWidth="10"
+                                markerHeight="10"
+                                refX="9"
+                                refY="3"
+                                orient="auto"
+                              >
+                                <polygon points="0 0, 10 3, 0 6" fill="black" />
+                              </marker>
+                            </defs>
+                            <line
+                              x1="0"
+                              y1="1"
+                              x2="80"
+                              y2="1"
+                              stroke="black"
+                              strokeWidth="2"
+                              markerEnd="url(#arrowhead3)"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    ) : (
+                      <img
+                        src={step.image || "/placeholder.svg"}
+                        alt={step.title}
+                        width={500}
+                        height={400}
+                        className="w-full h-auto rounded-lg shadow-md"
+                      />
+                    )}
+                  </div>
                 </div>
-                <h3 className="mb-3 text-xl font-bold text-foreground">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
-              </CardContent>
-            </Card>
+              ) : (
+                // Steps without images: centered card
+                <div className="max-w-md mx-auto">
+                  <Card className="border-none bg-secondary/50 shadow-md">
+                    <CardContent className="pt-8 pb-8">
+                      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md">
+                        <step.icon className="h-8 w-8 text-primary" />
+                      </div>
+                      <h3 className="mb-3 text-xl font-bold text-foreground">{step.title}</h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              )}
+            </div>
           ))}
         </div>
 
