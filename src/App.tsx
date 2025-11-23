@@ -1,7 +1,5 @@
 import './App.css'
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
-// import { Header } from './components/Header'
-// import { Footer } from './components/Footer'
 import { HomePage } from './pages/HomePage'
 import { ReportTheftPage } from './pages/ReportTheftPage'
 import { AboutusPage } from './pages/AboutusPage'
@@ -11,6 +9,9 @@ import { ScrollManager } from './components/ScrollManager'
 import {LandingPage} from "./pages/LandingPage";
 import { HeaderProvider } from './providers/HeadeProvider'
 import { FooterProvider } from './providers/FooterProvider'
+import { BlogPage } from './pages/BlogPage'
+import { ArticlePage } from './pages/ArticlePage'
+
 
 function App() {
   
@@ -25,6 +26,8 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/landing" element={<LandingPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<ArticlePage />} />
       </Routes>
       <FooterProvider />
     </Router>

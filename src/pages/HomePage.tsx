@@ -1,7 +1,7 @@
 import { Introduction } from '../components/sections/Introduction';
 import { HowItWorksSection } from '../components/sections/HowItWorks';  
 // import { ReviewsSection } from '../components/sections/Reviews';
-import { SubscriptionsSection } from '../components/sections/Subscriptions';
+// import { SubscriptionsSection } from '../components/sections/Subscriptions';
 import { NewsletterSignup } from '../components/sections/NewsletterSignup';
 
 export function HomePage(){
@@ -10,7 +10,7 @@ export function HomePage(){
       <Introduction />
       <HowItWorksSection />
       {/* <ReviewsSection /> */}
-      <SubscriptionsSection />
+      {/* <SubscriptionsSection /> */}
       <NewsletterSignup />
     </div>
   );
