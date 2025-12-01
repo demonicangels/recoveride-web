@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Container, Box, Typography, TextField, Button, Card, CardContent, Alert } from "@mui/material"
+import { Button, Card, CardContent } from "@mui/material"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 
 export function ContactPage() {
@@ -30,284 +30,153 @@ export function ContactPage() {
   }
 
   return (
-    <>
-      <Box sx={{ bgcolor: "background.default", minHeight: "100vh", py: 8 }}>
-        <Container maxWidth="lg">
-          {/* Top Section */}
-          <Box sx={{ textAlign: "center", mb: 8 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "primary.main",
-                fontWeight: 600,
-                fontSize: "1rem",
-                letterSpacing: 1,
-              }}
-            >
-              Get In Touch
-            </Typography>
-            <Typography
-              variant="h2"
-              sx={{
-                fontWeight: 700,
-                fontSize: { xs: "2rem", md: "3rem" },
-                mt: 2,
-                mb: 2,
-              }}
-            >
-              We're Here to Help
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                color: "text.secondary",
-                fontSize: "1.125rem",
-                maxWidth: 600,
-                mx: "auto",
-              }}
-            >
-              Have questions about our e-bike recovery service? We'd love to hear from you. Our team is ready to
-              assist you.
-            </Typography>
-          </Box>
+    <section className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <header className="text-center mb-12 lg:mb-16">
+          <p className="text-[#4FD1C5] font-semibold text-sm sm:text-base uppercase tracking-wider mb-3">
+            Get In Touch
+          </p>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-balance">We're Here to Help</h1>
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto text-pretty">
+            Have questions about our e-bike recovery service? We'd love to hear from you. Our team is ready to assist
+            you.
+          </p>
+        </header>
 
-            {/* Contact Information Cards */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                gap: 3,
-                justifyContent: "center",
-                mb: 8,
-              }}
-            >
-              <Card
-                sx={{
-                  bgcolor: "rgba(79, 209, 197, 0.08)",
-                  borderRadius: 4,
-                  border: "none",
-                  boxShadow: "none",
-                  flex: 1,
-                  maxWidth: { md: 320 },
-                }}
+        {/* Contact Information Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-12 lg:mb-16">
+          <Card className="bg-[#4FD1C5]/8 border-none shadow-none">
+            <CardContent className="p-6">
+              <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-4">
+                <Mail className="w-6 h-6 text-[#4FD1C5]" />
+              </div>
+              <h2 className="text-lg font-semibold mb-2">Email Us</h2>
+              <p className="text-sm text-muted-foreground mb-3">Send us an email anytime</p>
+              <a href="mailto:recoveridenl@gmail.nl" className="text-[#4FD1C5] font-medium hover:underline">
+                recoveridenl@gmail.nl
+              </a>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-[#4FD1C5]/8 border-none shadow-none">
+            <CardContent className="p-6">
+              <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-4">
+                <Phone className="w-6 h-6 text-[#4FD1C5]" />
+              </div>
+              <h2 className="text-lg font-semibold mb-2">Call Us</h2>
+              <p className="text-sm text-muted-foreground mb-3">Mon-Fri from 8am to 6pm</p>
+              <a href="tel:+31201234567" className="text-[#4FD1C5] font-medium hover:underline">
+                +31 20 123 4567
+              </a>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-[#4FD1C5]/8 border-none shadow-none">
+            <CardContent className="p-6">
+              <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-4">
+                <MapPin className="w-6 h-6 text-[#4FD1C5]" />
+              </div>
+              <h2 className="text-lg font-semibold mb-2">Visit Us</h2>
+              <p className="text-sm text-muted-foreground mb-3">Come say hello</p>
+              <address className="text-[#4FD1C5] font-medium not-italic">
+                Rachelsmolen 1, Eindhoven, Netherlands
+              </address>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Contact Form */}
+        <Card className="max-w-3xl mx-auto shadow-lg">
+          <CardContent className="p-6 sm:p-8 lg:p-10">
+            <h2 className="text-2xl font-semibold mb-6">Send Us a Message</h2>
+
+            {submitted && (
+              <div
+                className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg mb-6"
+                role="alert"
               >
-                <CardContent sx={{ p: 3 }}>
-                  <Box
-                    sx={{
-                      width: 56,
-                      height: 56,
-                      borderRadius: "50%",
-                      bgcolor: "white",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      mb: 2,
-                    }}
-                  >
-                    <Mail size={24} color="#4FD1C5" />
-                  </Box>
-                  <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                    Email Us
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
-                    Send us an email anytime
-                  </Typography>
-                  <Typography variant="body1" sx={{ color: "primary.main", fontWeight: 500 }}>
-                    recoveridenl@gmail.nl
-                  </Typography>
-                </CardContent>
-              </Card>
+                <p className="text-sm font-medium">
+                  Thank you for reaching out! We'll get back to you as soon as possible.
+                </p>
+              </div>
+            )}
 
-              <Card
-                sx={{
-                  bgcolor: "rgba(79, 209, 197, 0.08)",
-                  borderRadius: 4,
-                  border: "none",
-                  boxShadow: "none",
-                  flex: 1,
-                  maxWidth: { md: 320 },
-                }}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium">
+                    Your Name *
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    placeholder="John Doe"
+                    className="w-full border rounded-md px-3 py-1.5"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium">
+                    Email Address *
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="john@example.com"
+                    className="w-full border rounded-md px-3 py-1.5"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="phone" className="text-sm font-medium">
+                  Phone Number 
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="+31 20 123 4567"
+                  className="w-full border rounded-md px-3 py-1.5"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-medium">
+                  Your Message *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  placeholder="Tell us how we can help you..."
+                  rows={6}
+                  className="w-full border rounded-md px-3 py-1.5"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-black hover:bg-black/90 text-white rounded-full py-6 text-base font-semibold"
               >
-                <CardContent sx={{ p: 3 }}>
-                  <Box
-                    sx={{
-                      width: 56,
-                      height: 56,
-                      borderRadius: "50%",
-                      bgcolor: "white",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      mb: 2,
-                    }}
-                  >
-                    <Phone size={24} color="#4FD1C5" />
-                  </Box>
-                  <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                    Call Us
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
-                    Mon-Fri from 8am to 6pm
-                  </Typography>
-                  <Typography variant="body1" sx={{ color: "primary.main", fontWeight: 500 }}>
-                    +31 20 123 4567
-                  </Typography>
-                </CardContent>
-              </Card>
-
-              <Card
-                sx={{
-                  bgcolor: "rgba(79, 209, 197, 0.08)",
-                  borderRadius: 4,
-                  border: "none",
-                  boxShadow: "none",
-                  flex: 1,
-                  maxWidth: { md: 320 },
-                }}
-              >
-                <CardContent sx={{ p: 3 }}>
-                  <Box
-                    sx={{
-                      width: 56,
-                      height: 56,
-                      borderRadius: "50%",
-                      bgcolor: "white",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      mb: 2,
-                    }}
-                  >
-                    <MapPin size={24} color="#4FD1C5" />
-                  </Box>
-                  <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                    Visit Us
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
-                    Come say hello
-                  </Typography>
-                  <Typography variant="body1" sx={{ color: "primary.main", fontWeight: 500 }}>
-                    Rachelsmolen 1, Eindhoven, Netherlands
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-          </Container>
-
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            {/* Contact Form */}
-            <Card
-              sx={{
-                bgcolor: "white",
-                borderRadius: 4,
-                boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-                maxWidth: 800,
-                mx: "auto",
-                width: "100%",
-              }}
-            >
-              <CardContent sx={{ p: { xs: 3, md: 5 } }}>
-                <Typography variant="h5" sx={{ fontWeight: 600, mb: 3 }}>
-                  Send Us a Message
-                </Typography>
-
-                {submitted && (
-                  <Alert severity="success" sx={{ mb: 3, borderRadius: 2 }}>
-                    Thank you for reaching out! We'll get back to you as soon as possible.
-                  </Alert>
-                )}
-
-                <form onSubmit={handleSubmit}>
-                  <Box sx={{ display: "grid", gap: 3 }}>
-                    <Box
-                      sx={{
-                        display: "grid",
-                        gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
-                        gap: 3,
-                      }}
-                    >
-                      <TextField
-                        fullWidth
-                        label="Your Name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        sx={{
-                          "& .MuiOutlinedInput-root": {
-                            borderRadius: 2,
-                          },
-                        }}
-                      />
-                      <TextField
-                        fullWidth
-                        label="Email Address"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        sx={{
-                          "& .MuiOutlinedInput-root": {
-                            borderRadius: 2,
-                          },
-                        }}
-                      />
-                    </Box>
-                    <TextField
-                      fullWidth
-                      label="Phone Number"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      sx={{
-                        "& .MuiOutlinedInput-root": {
-                          borderRadius: 2,
-                        },
-                      }}
-                    />
-                    <TextField
-                      fullWidth
-                      label="Your Message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      multiline
-                      rows={6}
-                      sx={{
-                        "& .MuiOutlinedInput-root": {
-                          borderRadius: 2,
-                        },
-                      }}
-                    />
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      size="large"
-                      fullWidth
-                      endIcon={<Send size={18} />}
-                      sx={{
-                        bgcolor: "black",
-                        color: "white",
-                        borderRadius: "50px",
-                        py: 1.5,
-                        fontSize: "1rem",
-                        fontWeight: 600,
-                        textTransform: "none",
-                        "&:hover": {
-                          bgcolor: "#333",
-                        },
-                      }}
-                    >
-                      Send Message
-                    </Button>
-                  </Box>
-                </form>
-              </CardContent>
-            </Card>
-        </Box>
-      </Box>
-    </>
+                Send Message
+                <Send className="ml-2 w-4 h-4" />
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
   )
 }

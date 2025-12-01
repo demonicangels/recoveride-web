@@ -5,7 +5,7 @@ import { Package, AlertCircle, Radio, CheckCircle, ChevronLeft, ChevronRight } f
 import recovery_team from "../../assets/recovery_team.jpeg"
 import trackingApp from "../../assets/tracking_app.jpeg"
 import teenwaysBike from "../../assets/tenways.png"
-import reportButton from "../../assets/report_button.png"
+import reportButton from "../../assets/reporttheft_button.jpeg"
 
 export function HowItWorksSection() {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -17,7 +17,7 @@ export function HowItWorksSection() {
       icon: Package,
       title: "We Install Your Tracker (discreetly)",
       description:
-        "Receive your compact GPS tracker and relax while we install it discreetly in a hidden location on your e-bike. The tracker stays in standby mode to preserve battery life.",
+        "Receive your compact tracker and relax while we install it in a hidden location on your e-bike. It stays inactive until you report theft—ready for rapid e-bike recovery when needed.",
       image: teenwaysBike,
       hasAnnotations: true,
     },
@@ -25,21 +25,21 @@ export function HowItWorksSection() {
       icon: AlertCircle,
       title: "Simply Report the Theft",
       description:
-        "If your e-bike is stolen, don't worry. Just use the button on the top right of the page to visit our Report Theft page, confirm the last known location, and activate recovery mode with a single click. We take it from there.",
+        "If your e-bike is stolen, activate recovery mode through the Report Theft page. This securely starts the stolen e-bike recovery process and sends the last known location to our recovery team.",
       image: reportButton,
     },
     {
       icon: Radio,
       title: "We Track in Real-Time",
       description:
-        "Once activated, your tracker transmits real-time location data directly to our dedicated recovery team. You can relax knowing we're on the case.",
+        "Once activated, the tracker provides real-time location updates directly to our professional bike recovery team. This allows us to begin searching immediately and work to recover your stolen e-bike within 72 hours.",
       image: trackingApp,
     },
     {
       icon: CheckCircle,
       title: "We Handle Everything",
       description:
-        "Our team works to locate and recover your e-bike. We coordinate with police and insurers on your behalf, keeping you informed every step of the way.",
+        "Our team coordinates the full bike theft recovery process—locating your e-bike, working with police, assisting with documentation, and supporting any insurance needs. You stay informed while we do the heavy lifting on your behalf.",
       image: recovery_team,
     },
   ]
@@ -87,14 +87,14 @@ export function HowItWorksSection() {
 
         <div className="mx-auto mb-10 sm:mb-12 md:mb-16 max-w-3xl text-center px-4">
           <h2 className="mb-3 sm:mb-4 text-balance text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-            Stress-Free Protection in Four Steps
+            Full E-Bike Protection in Four Steps
           </h2>
           <p className="text-pretty text-base sm:text-lg leading-relaxed text-muted-foreground">
             We've made it simple so you can focus on what matters - enjoying your ride
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+        <div className="max-w-3xl mx-auto flex flex-col md:flex-row gap-6 md:gap-8 items-center">
           {/* Carousel */}
           <div className="flex-1 w-full relative">
             {/* Navigation arrows - visible on mobile */}
@@ -182,7 +182,7 @@ export function HowItWorksSection() {
                               </div>
 
                               {/* Saddle - adjusted for mobile */}
-                              <div className="absolute top-[20%] right-[30%] sm:right-[35%] flex flex-col items-center gap-0.5 sm:gap-1">
+                              <div className="absolute top-[27%] right-[30%] sm:right-[35%] flex flex-col items-center gap-0.5 sm:gap-1">
                                 <span className="bg-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-semibold text-black shadow-md">
                                   here
                                 </span>

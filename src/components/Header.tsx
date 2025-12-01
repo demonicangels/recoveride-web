@@ -16,7 +16,7 @@ export function Header() {
     { name: "Subscriptions", path: "/#subscriptions" },
     { name: "About Us", path: "/about" },
     { name: "Contact", path: "/contact" },
-    // { name: "Blog", path: "/blog" }
+    { name: "Blog", path: "/blog" }
   ]
 
   return (

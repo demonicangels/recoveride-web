@@ -44,7 +44,7 @@ export function NewsletterSignup() {
     }
 
   return (
-    <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-linear-to-br from-[#1A3B5C] via-[#234567] to-[#1A3B5C]">
+    <section id="signup" className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-linear-to-br from-[#1A3B5C] via-[#234567] to-[#1A3B5C]">
       <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-[#d63624] opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-[#d63624] opacity-10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
       <div className="absolute top-1/2 left-1/2 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-white opacity-5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
@@ -76,7 +76,7 @@ export function NewsletterSignup() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base bg-[#d63624] hover:bg-[#c42d1a] text-white font-semibold rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base bg-[#d63624] hover:bg-[#c42d1a] text-white font-semibold rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer"
             >
               Subscribe now
             </button>

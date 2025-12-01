@@ -29,6 +29,11 @@ export function Footer() {
                   How It Works
                 </a>
               </li>
+              <li>
+                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => navigate('/blog')}>
+                  Blog
+                </a>
+              </li>
               {/* <li>
                 <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => navigate({pathname: '/', hash: '#subscriptions'})}>
                   Pricing

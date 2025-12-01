@@ -43,7 +43,7 @@ export function Introduction() {
           className="h-full w-full object-cover"
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-linear-to-br from-black/70 via-black/60 to-[#1A3B5C]/40"></div>
+        <div className="absolute inset-0 bg-linear-to-br bg-black/66"></div>
       </div>
 
       <div className="absolute top-10 right-5 md:top-20 md:right-20 h-40 w-40 md:h-72 md:w-72 rounded-full bg-[#E74C3C]/20 blur-3xl z-1"></div>
@@ -95,14 +95,14 @@ export function Introduction() {
           </div>
 
           <p className="mb-6 sm:mb-8 text-pretty text-base sm:text-lg md:text-xl leading-relaxed text-white/90 max-w-3xl">
-            We take the stress out of bike theft by handling the recovery process so e-bike owners can get back on the
-            road faster. Our team handles everything from bike location tracking to police coordination.
+            We remove the stress of bike theft with a complete e-bike terugvinden service that helps you find and recover your stolen e-bike fast. 
+            From GPS locatie tracking to police/insurer reporting support, our recovery team coordinates every step so you can get back on your bike fast.
           </p>
 
           <div className="max-w-2xl rounded-2xl bg-white/10 backdrop-blur-md p-4 sm:p-6 border border-white/20 shadow-2xl">
             <p className="mb-3 sm:mb-4 text-base sm:text-lg font-bold text-white">Join Our Community</p>
             <p className="mb-4 sm:mb-6 text-sm sm:text-base text-white/80">
-              Be first to experience worry-free e-bike ownership
+              Stay ahead of bike theft—get updates, tips, and early access straight to your inbox.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
               <input
