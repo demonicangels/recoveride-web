@@ -150,7 +150,7 @@ export function HowItWorksSection() {
                               />
 
                               {/* Battery - adjusted for mobile */}
-                              <div className="absolute top-[38%] left-[20%] sm:left-[27%] flex items-center gap-1">
+                              <div className="absolute top-[38%] left-[20%] sm:left-[24%] flex items-center gap-1">
                                 <span className="bg-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-semibold text-black shadow-md">
                                   here
                                 </span>

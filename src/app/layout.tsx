@@ -15,6 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link rel="icon" type="image" href="/assets/recoverideLogo.png" />
         <body>
           <ScrollManager />
             <HeaderProvider/>

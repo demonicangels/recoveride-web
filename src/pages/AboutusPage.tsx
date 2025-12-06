@@ -69,8 +69,8 @@ export function AboutusPage() {
             <Card className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
               <div className="aspect-square overflow-hidden bg-muted">
                 <img
-                  src="/assets/bikeI.jpg"
-                  alt="Recovered Orange Cruiser Bike"
+                  src="/assets/bike_I.jpeg"
+                  alt="Stolen Orange Cruiser Bike"
                   className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
                   
                 />
@@ -84,7 +84,7 @@ export function AboutusPage() {
               <div className="aspect-square overflow-hidden bg-muted">
                 <img
                   src="/assets/bike_J2.jpeg"
-                  alt="Recovered Slingerland Racer Bike"
+                  alt="Stolen Slingerland Racer Bike"
                   className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
                   
                 />
@@ -97,8 +97,8 @@ export function AboutusPage() {
             <Card className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
               <div className="aspect-square overflow-hidden bg-muted">
                 <img
-                  src="/assets/bikeN.jpg"
-                  alt="Recovered Metro Commuter Bike"
+                  src="/assets/bike_N.jpg"
+                  alt="Stolen Metro Commuter Bike"
                   className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
                   
                 />
@@ -111,10 +111,9 @@ export function AboutusPage() {
             <Card className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
               <div className="aspect-square overflow-hidden bg-muted">
                 <img
-                  src="/assets/bikeJ.jpeg"
-                  alt="Recovered Speed Demon Bike"
+                  src="/assets/bike_J.jpeg"
+                  alt="Stolen Speed Demon Bike"
                   className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
-                  
                 />
               </div>
               <CardContent className="pt-4 pb-4">
