@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react"
 import { Button, Card, CardContent } from "@mui/material"
 import { Mail, Phone, MapPin, Send } from "lucide-react"

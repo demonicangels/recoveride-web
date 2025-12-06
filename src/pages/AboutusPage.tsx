@@ -1,16 +1,16 @@
+"use client";
+
 import { Card, CardContent } from "@mui/material"
-import bikeCommunity from "../assets/bike_community.jpg"
-import teamPic from "../assets/team.jpg"
-import bikeN from "../assets/bike_N.jpg"
-import bikeJ from "../assets/bike_J.jpeg"
-import bikeJ2 from "../assets/bike_J2.jpeg"
-import bikeI from "../assets/bike_I.jpeg"
 
 export function AboutusPage() {
   return (
     <div className="bg-white">
       <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
-        <img src={bikeCommunity} alt="Bike Community" className="h-full w-full object-cover" />
+        <img 
+          src="/assets/bike_community.jpg" 
+          alt="Bike Community" 
+          className="h-full w-full object-cover" 
+          />
         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
           <div className="text-center text-white px-4">
             <h1 className="mb-4 text-balance text-4xl font-bold uppercase tracking-tight md:text-6xl lg:text-7xl">
@@ -69,9 +69,10 @@ export function AboutusPage() {
             <Card className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
               <div className="aspect-square overflow-hidden bg-muted">
                 <img
-                  src={bikeI}
+                  src="/assets/bikeI.jpg"
                   alt="Recovered Orange Cruiser Bike"
                   className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
+                  
                 />
               </div>
               <CardContent className="pt-4 pb-4">
@@ -82,9 +83,10 @@ export function AboutusPage() {
             <Card className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
               <div className="aspect-square overflow-hidden bg-muted">
                 <img
-                  src={bikeJ2}
+                  src="/assets/bike_J2.jpeg"
                   alt="Recovered Slingerland Racer Bike"
                   className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
+                  
                 />
               </div>
               <CardContent className="pt-4 pb-4">
@@ -95,9 +97,10 @@ export function AboutusPage() {
             <Card className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
               <div className="aspect-square overflow-hidden bg-muted">
                 <img
-                  src={bikeN}
+                  src="/assets/bikeN.jpg"
                   alt="Recovered Metro Commuter Bike"
                   className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
+                  
                 />
               </div>
               <CardContent className="pt-4 pb-4">
@@ -108,9 +111,10 @@ export function AboutusPage() {
             <Card className="overflow-hidden shadow-md hover:shadow-lg transition-shadow">
               <div className="aspect-square overflow-hidden bg-muted">
                 <img
-                  src={bikeJ}
+                  src="/assets/bikeJ.jpeg"
                   alt="Recovered Speed Demon Bike"
                   className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
+                  
                 />
               </div>
               <CardContent className="pt-4 pb-4">
@@ -141,9 +145,10 @@ export function AboutusPage() {
               </div>
               <div className="relative overflow-hidden rounded-2xl shadow-xl">
                 <img
-                  src={teamPic}
+                  src="/assets/team.jpg"
                   alt="Recoveride  Team Working Together"
                   className="h-full w-full object-cover"
+                  
                 />
               </div>
             </div>

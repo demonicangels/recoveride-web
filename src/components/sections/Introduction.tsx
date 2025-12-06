@@ -1,7 +1,8 @@
+"use client";
+
 import { Mail, Shield, MapPin, Clock } from "lucide-react"
 import type React from "react"
 import { useState } from "react"
-import bikeRider from "../../assets/bike_rider.jpg"
 import { BrevoAPI } from "../../services/brevoAPI"
 
 export function Introduction() {
@@ -38,9 +39,10 @@ export function Introduction() {
     <section className="relative min-h-[90vh] overflow-hidden flex items-center">
       <div className="absolute inset-0 z-0">
         <img
-          src={bikeRider}
+          src="/assets/bike_rider.jpg"
           alt="Cyclist riding on scenic road"
           className="h-full w-full object-cover"
+          
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-linear-to-br bg-black/66"></div>

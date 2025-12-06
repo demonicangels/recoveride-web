@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Box, Container, Typography, TextField, Button, Alert } from "@mui/material"
 import { CheckCircle, Circle } from "lucide-react"
-import recoverideLogo from "../assets/recoverideLogo.png"
 import { BrevoAPI } from "../services/brevoAPI"
 
 export function LandingPage() {
@@ -49,7 +48,13 @@ export function LandingPage() {
       <Container maxWidth="md">
         {/* Minimal Logo Header */}
         <Box sx={{ textAlign: "center", mb: 6 }}>
-          <img src={recoverideLogo} alt="Recoveride" width={120} height={120} style={{ margin: "0 auto" }} />
+          <img 
+            src="/assets/recoverideLogo.png" 
+            alt="Recoveride" 
+            width={120} 
+            height={120} 
+            style={{ margin: "0 auto" }} 
+          />
         </Box>
 
         {/* Main Content Card */}

@@ -1,9 +1,11 @@
-import { useLocation } from "react-router-dom"
+"use client";
+
+import { usePathname } from "next/navigation";
 import { Header } from "../components/Header"
 
 export const HeaderProvider = () => {
-    const location = useLocation();
-    const isLandingPage = location.pathname === "/landing";
+    const pathname = usePathname();
+    const isLandingPage = pathname === "/landing";
 
     return (
         <>

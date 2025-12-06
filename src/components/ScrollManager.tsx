@@ -1,21 +1,26 @@
+"use client";
+
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 export function ScrollManager (){
 
-const  {pathname, hash}  = useLocation();
+const pathname  = usePathname();
 
 useEffect(() => {
 
+  const hash = window.location.hash;
+
   if (hash) {
     const element = document.querySelector(hash);
+    
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   } else {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }
-}, [pathname, hash]);
+}, [pathname]);
 
 
   return null;

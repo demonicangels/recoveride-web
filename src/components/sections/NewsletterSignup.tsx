@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react"
 import { Mail, CheckCircle2, Shield } from "lucide-react"
 import { BrevoAPI } from "../../services/brevoAPI"

@@ -1,11 +1,9 @@
+"use client";
+
 import { useState } from "react"
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Package, AlertCircle, Radio, CheckCircle, ChevronLeft, ChevronRight } from "lucide-react"
-import recovery_team from "../../assets/recovery_team.jpeg"
-import trackingApp from "../../assets/tracking_app.jpeg"
-import teenwaysBike from "../../assets/tenways.png"
-import reportButton from "../../assets/reporttheft_button.jpeg"
 
 export function HowItWorksSection() {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -18,7 +16,7 @@ export function HowItWorksSection() {
       title: "We Install Your Tracker (discreetly)",
       description:
         "Receive your compact tracker and relax while we install it in a hidden location on your e-bike. It stays inactive until you report theft—ready for rapid e-bike recovery when needed.",
-      image: teenwaysBike,
+      image: "/assets/tenways.png",
       hasAnnotations: true,
     },
     {
@@ -26,21 +24,21 @@ export function HowItWorksSection() {
       title: "Simply Report the Theft",
       description:
         "If your e-bike is stolen, activate recovery mode through the Report Theft page. This securely starts the stolen e-bike recovery process and sends the last known location to our recovery team.",
-      image: reportButton,
+      image: "/assets/reporttheft_button.jpeg",
     },
     {
       icon: Radio,
       title: "We Track in Real-Time",
       description:
         "Once activated, the tracker provides real-time location updates directly to our professional bike recovery team. This allows us to begin searching immediately and work to recover your stolen e-bike within 72 hours.",
-      image: trackingApp,
+      image: "/assets/tracking_app.jpeg",
     },
     {
       icon: CheckCircle,
       title: "We Handle Everything",
       description:
         "Our team coordinates the full bike theft recovery process—locating your e-bike, working with police, assisting with documentation, and supporting any insurance needs. You stay informed while we do the heavy lifting on your behalf.",
-      image: recovery_team,
+      image: "/assets/recovery_team.jpeg",
     },
   ]
 
@@ -148,6 +146,7 @@ export function HowItWorksSection() {
                                 src={step.image || "/placeholder.svg"}
                                 alt={step.title}
                                 className="w-full h-auto rounded-lg"
+                                
                               />
 
                               {/* Battery - adjusted for mobile */}

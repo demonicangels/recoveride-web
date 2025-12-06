@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/nikol/source/repos/recoveride-web/src/components/ScrollManager.tsx"],"sourcesContent":["\"use client\";\nimport { useEffect } from \"react\";\nimport { usePathname } from \"next/navigation\";\n\nexport function ScrollManager (){\n\nconst pathname  = usePathname();\n\nuseEffect(() => {\n\n  const hash = window.location.hash;\n\n  if (hash) {\n    const element = document.querySelector(hash);\n    if (element) {\n      element.scrollIntoView({ behavior: \"smooth\" });\n    }\n  } else {\n    window.scrollTo({ top: 0, left: 0, behavior: \"auto\" });\n  }\n}, [pathname]);\n\n\n  return null;\n}"],"names":[],"mappings":";;;;AACA;AACA;;AAFA;;;AAIO,SAAS;;IAEhB,MAAM,WAAY,IAAA,oJAAW;IAE7B,IAAA,0KAAS;mCAAC;YAER,MAAM,OAAO,OAAO,QAAQ,CAAC,IAAI;YAEjC,IAAI,MAAM;gBACR,MAAM,UAAU,SAAS,aAAa,CAAC;gBACvC,IAAI,SAAS;oBACX,QAAQ,cAAc,CAAC;wBAAE,UAAU;oBAAS;gBAC9C;YACF,OAAO;gBACL,OAAO,QAAQ,CAAC;oBAAE,KAAK;oBAAG,MAAM;oBAAG,UAAU;gBAAO;YACtD;QACF;kCAAG;QAAC;KAAS;IAGX,OAAO;AACT;GApBgB;;QAEE,oJAAW;;;KAFb"}},
+    {"offset": {"line": 54, "column": 0}, "map": {"version":3,"sources":["file:///home/nikol/source/repos/recoveride-web/node_modules/next/navigation.js"],"sourcesContent":["module.exports = require('./dist/client/components/navigation')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0]}}]
+}

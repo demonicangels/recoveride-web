@@ -1,3 +1,5 @@
+"use client";
+
 import { Introduction } from '../components/sections/Introduction';
 import { HowItWorksSection } from '../components/sections/HowItWorks';  
 // import { ReviewsSection } from '../components/sections/Reviews';

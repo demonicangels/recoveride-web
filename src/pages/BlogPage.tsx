@@ -1,14 +1,14 @@
+"use client";
+
 import { ArrowRight, Calendar, Shield, MapPin, Users, FileText } from "lucide-react"
-import { useNavigate } from 'react-router-dom';
-import blogPic from "../assets/blog_pic.jpg"
-import ebikeBg from "../assets/ebike_safety_hero.jpeg"
+import { useRouter } from "next/navigation"
 
 const blogPosts = [
   {
     id: 1,
     title: "Practical Tips To Help You Protect Your Bike From Theft",
     description: "7 essential actions every e-bike owner should take to minimize the risk of theft and keep their ride secure.",
-    image: ebikeBg,
+    image: "/assets/ebike_safety_hero.jpeg",
     date: "December 01, 2025",
     path: "/blog/what-to-do-after-bike-stolen"
   },
@@ -39,14 +39,18 @@ const blogPosts = [
 ]
 
 export function BlogPage() {
-    const navigate = useNavigate();
+    const router = useRouter();
 
   return (
     <section className="min-h-screen bg-white">
       <div className="relative text-white py-20 md:py-32 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img src={blogPic} alt="Cyclist riding" className="w-full h-full object-cover" />
+          <img 
+            src="/assets/blog_pic.jpg"  
+            alt="Cyclist riding" 
+            className="w-full h-full object-cover" 
+            />
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-black/80" />
         </div>
@@ -172,7 +176,7 @@ export function BlogPage() {
                 <p className="text-sm leading-relaxed mb-4">
                   Join our community and be one step ahead in protecting your ebike.
                 </p>
-                <button className="bg-white text-[#d63624] px-6 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-colors duration-300 text-sm cursor-pointer hover:" onClick={() => {navigate("/#signup")}}>
+                <button className="bg-white text-[#d63624] px-6 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-colors duration-300 text-sm cursor-pointer hover:" onClick={() => {router.push("/#signup")}}>
                   Subscribe now
                 </button>
               </div>
@@ -203,7 +207,7 @@ export function BlogPage() {
               <article
                 key={post.id}
                 className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col cursor-pointer"
-                onClick={() => navigate(post.path)}
+                onClick={() => router.push(post.path)}
               >
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
@@ -211,6 +215,7 @@ export function BlogPage() {
                     src={post.image || "/placeholder.svg"}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#1A3B5C]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -234,7 +239,7 @@ export function BlogPage() {
                   <p className="text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">{post.description}</p>
 
                   {/* Read More Button */}
-                  <button className="inline-flex items-center gap-2 text-[#d63624] font-semibold text-sm group/btn hover:gap-3 transition-all duration-300 cursor-pointer" onClick={() => navigate(post.path)}>
+                  <button className="inline-flex items-center gap-2 text-[#d63624] font-semibold text-sm group/btn hover:gap-3 transition-all duration-300 cursor-pointer" onClick={() => router.push(post.path)}>
                     Read More
                     <ArrowRight size={16} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </button>

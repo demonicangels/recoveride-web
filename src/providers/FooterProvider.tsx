@@ -1,9 +1,11 @@
-import { useLocation } from "react-router-dom"
+"use client";
+
+import { usePathname } from "next/navigation";
 import { Footer } from "../components/Footer";
 
 export const FooterProvider = () => {
-    const location = useLocation();
-    const isLandingPage = location.pathname === "/landing";
+    const pathname = usePathname();
+    const isLandingPage = pathname === "/landing";
 
     return (
         <>

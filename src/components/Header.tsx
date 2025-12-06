@@ -1,15 +1,16 @@
+"use client";
+
 import { Menu, X, ShieldAlert } from "lucide-react"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useRouter } from "next/navigation"
 import { Box } from "@mui/material"
-import logo from "../assets/recoverideLogo.png"
 
 
 export function Header() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const navigate = useNavigate()
-
+  const router = useRouter()
+  
   const links = [
     { name: "Home", path: "/" },
     { name: "How It Works", path: "/#how-it-works" },
@@ -25,12 +26,10 @@ export function Header() {
         {/* Logo */}
         <Box sx={{ display: "flex", alignItems: "center", height: 60 }}>
           <img
-            src={logo}
+            src="/assets/recoverideLogo.png"
             alt="Recoveride Logo"
-            width={100}
-            height={45}
-            style={{ objectFit: "contain", cursor: "pointer", marginTop: 10 }}
-            onClick={() => navigate("/")}
+            style={{ objectFit: "contain", cursor: "pointer", height: 110 }}
+            onClick={() => router.push("/")}
           />
         </Box>
 
@@ -39,7 +38,7 @@ export function Header() {
           {links.map((link) => (
             <a
               key={link.name}
-              onClick={() => navigate(link.path)}
+              onClick={() => router.push(link.path)}
               className="text-base font-medium text-foreground transition-colors hover:bg-gray-300 cursor-pointer px-3 py-2 rounded-md"
             >
               {link.name}
@@ -50,7 +49,7 @@ export function Header() {
         {/* Desktop Report Button */}
         <div className="hidden md:block">
           <button
-            onClick={() => navigate("/report")}
+            onClick={() => router.push("/report")}
             className="rounded-full border-2 border-red-600 bg-white text-red-600 hover:bg-red-600 hover:text-white transition-all font-semibold px-6 py-2 flex items-center gap-2"
           >
             <ShieldAlert className="h-4 w-4" />
@@ -75,7 +74,7 @@ export function Header() {
             {links.map((link) => (
               <a
                 key={link.name}
-                onClick={() => navigate(link.path)}
+                onClick={() => router.push(link.path)}
                 className="text-base font-medium text-foreground transition-colors hover:bg-gray-300 px-4 py-3 rounded-md text-left"
               >
                 {link.name}
@@ -86,7 +85,7 @@ export function Header() {
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                navigate("/report");
+                router.push("/report");
               }}
               className="rounded-full border-2 border-red-600 bg-white text-red-600 hover:bg-red-600 hover:text-white transition-all font-semibold flex items-center justify-center gap-2 py-3 mt-4"
             >

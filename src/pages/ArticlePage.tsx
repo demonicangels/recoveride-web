@@ -1,15 +1,22 @@
-import { Calendar, User, Clock, ArrowLeft } from "lucide-react"
-import ebikeBg from "../assets/ebike_safety_hero.jpeg"
+"use client";
 
-export function ArticlePage() {
+import { Calendar, User, Clock, ArrowLeft } from "lucide-react"
+import type { ArticlePageProps } from "../types/articlePageProps"
+
+export function ArticlePage({slug}: ArticlePageProps) {
+
+  console.log("Rendering ArticlePage for slug:", slug);
+
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-50 via-white to-gray-100">
       {/* Hero Section */}
       <div className="relative bg-[#1A3B5C] text-white py-16 md:py-24 overflow-hidden">
         {/* Background Image */}
         <img
+          alt="blog-image-ebike"
           className="absolute inset-0 z-0 w-full"
-          src={ebikeBg}
+          src="/assets/ebike_safety_hero.jpeg"
+          
         />
           <div className="absolute inset-0 bg-black/70" />
 

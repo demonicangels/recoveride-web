@@ -1,8 +1,10 @@
+"use client";
+
 import {Instagram, ArrowUp } from "lucide-react"
-import { useNavigate } from "react-router-dom"
+import { useRouter } from "next/navigation"
 
 export function Footer() {
-  const navigate = useNavigate()
+  const router = useRouter()
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -25,12 +27,12 @@ export function Footer() {
             <h3 className="mb-4 font-bold text-foreground">Product</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => navigate({pathname: '/', hash: '#how-it-works'})}>
+                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => router.push('/#how-it-works')}>
                   How It Works
                 </a>
               </li>
               <li>
-                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => navigate('/blog')}>
+                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => router.push('/blog')}>
                   Blog
                 </a>
               </li>
@@ -51,7 +53,7 @@ export function Footer() {
             <h3 className="mb-4 font-bold text-foreground">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => navigate("/about")}>
+                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => router.push("/about")}>
                   About Us
                 </a>
               </li>
@@ -66,7 +68,7 @@ export function Footer() {
                 </a>
               </li> */}
               <li>
-                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => navigate('/contact')}>
+                <a className="text-muted-foreground transition-colors hover:text-primary hover:cursor-pointer" onClick={() => router.push('/contact')}>
                   Contact
                 </a>
               </li>

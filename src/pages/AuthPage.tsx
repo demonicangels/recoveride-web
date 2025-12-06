@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react"
 import { Box, Container, Card, CardContent, TextField, Button, Typography, Alert, Tabs, Tab } from "@mui/material"
 import { User, Mail, Lock, ArrowLeft } from "lucide-react"
