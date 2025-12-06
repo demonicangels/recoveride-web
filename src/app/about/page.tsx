@@ -1,4 +1,4 @@
-import { AboutusPage } from "../../pages/AboutusPage";
+import { AboutusPage } from "../../views/AboutusPage";
 
 export default function AboutusPageRoute() {
   return <AboutusPage />;

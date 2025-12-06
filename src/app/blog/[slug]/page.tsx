@@ -1,4 +1,4 @@
-import { ArticlePage } from "../../../pages/ArticlePage";
+import { ArticlePage } from "../../../views/ArticlePage";
 
 export function generateStaticParams() {
   return [
