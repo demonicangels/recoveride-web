@@ -1,43 +1,17 @@
-"use client";
+"use client"
 
-import {
-  Box,
-  Container,
-  Typography,
-  Card,
-  CardContent,
-  Button,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Chip,
-} from "@mui/material"
 import { Check } from "lucide-react"
-import { useNavigate } from "react-router-dom"
+import { useRouter } from "next/navigation"
 
 export function SubscriptionsSection() {
+
   const plans = [
     {
       name: "Basic",
-      price: "€9.99",
-      period: "per month",
-      description: "Essential protection for your e-bike",
-      features: [
-        "GPS tracker included",
-        "Real-time location tracking via fin my app",
-        "Police reporting assistance",
-        "Email support",
-      ],
-      popular: false,
-    },
-    {
-      name: "Premium",
-      price: "€14.99",
+      price: "€15.99",
       period: "per month",
       description: "Complete protection with recovery service",
       features: [
-        "Everything in Basic",
         "Bike recovery services",
         "Assistance in police/insurer documents",
         "24/7 priority support",
@@ -45,148 +19,105 @@ export function SubscriptionsSection() {
       ],
       popular: true,
     },
-    {
-      name: "Family",
-      price: "€24.99",
-      period: "per month",
-      description: "Protect up to 4 e-bikes",
-      features: [
-        "Everything in Premium",
-        "Up to 4 GPS trackers",
-        "Multi-bike management",
-        "Maintenance check every 2 years",
-      ],
-      popular: false,
-    },
+    // {
+    //   name: "Family",
+    //   price: "€28.99",
+    //   period: "per month",
+    //   description: "Protect up to 4 e-bikes",
+    //   features: [
+    //     "Everything in Premium",
+    //     "Up to 4 GPS trackers",
+    //     "Multi-bike management",
+    //     "Maintenance check every 2 years",
+    //   ],
+    //   popular: false,
+    // },
   ]
 
-  const navigate = useNavigate()
-
-  const handleGetStarted = () => {
-    navigate("/auth")
-  }
+  const router = useRouter();
 
   return (
-    <Box component="section" id="subscriptions" sx={{ bgcolor: "#F9FAFB", py: { xs: 10, md: 16 } }}>
-      <Container maxWidth="xl">
-        <Box sx={{ textAlign: "center", mb: 2 }}>
-          <Typography variant="h6" sx={{ fontWeight: 600, color: "primary.main" }}>
+    <section id="subscriptions" className="bg-gray-50 py-16 md:py-24">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Header */}
+        <header className="text-center mb-4">
+          <h3 className="text-lg font-semibold mb-2" style={{ color: "#1A3B5C" }}>
             Subscriptions
-          </Typography>
-        </Box>
-        <Box sx={{ maxWidth: "48rem", mx: "auto", mb: 8, textAlign: "center" }}>
-          <Typography variant="h2" sx={{ mb: 2, fontSize: { xs: "2rem", md: "3rem" }, fontWeight: "bold" }}>
+          </h3>
+        </header>
+
+        <div className="max-w-3xl mx-auto mb-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#1A3B5C" }}>
             Choose Your Protection Plan
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: "1.125rem", lineHeight: 1.7, color: "text.secondary" }}>
+          </h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
             All plans include a GPS tracker and 30-day money-back guarantee
-          </Typography>
-        </Box>
+          </p>
+        </div>
 
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", lg: "repeat(3, 1fr)" },
-            gap: 4,
-          }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto ml-106">
           {plans.map((plan, index) => (
-            <Card
+            <article
               key={index}
-              sx={{
-                position: "relative",
-                border: "none",
-                boxShadow: 3,
-                height: "100%",
-                display: "flex",
-                padding: 0,
-                flexDirection: "column",
-                bgcolor: "white",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-8px)",
-                  boxShadow: 6,
-                },
-                ...(plan.popular && {
-                  outline: "4px solid",
-                  outlineColor: "primary.main",
-                }),
-                overflow: "visible",
-              }}
+              className="relative bg-white rounded-2xl shadow-lg overflow-visible transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              // style={{
+              //   ...(plan.popular && {
+              //     outline: "4px solid #1A3B5C",
+              //   }),
+              // }}
             >
-              {plan.popular && (
-                <Box sx={{ position: "absolute", top: 0, left: "50%", transform: "translate(-50%, -50%)", zIndex: 10 }}>
-                  <Chip
-                    label="Most Popular"
-                    sx={{
-                      bgcolor: "primary.main",
-                      color: "white",
-                      fontWeight: "bold",
-                      px: 2,
-                      py: 1,
-                      boxShadow: 2,
-                    }}
-                  />
-                </Box>
-              )}
-              
-              <CardContent sx={{ textAlign: "center", pb: 2, flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                <Typography variant="h5" sx={{ mb: 1, fontWeight: "bold" }}>
-                  {plan.name}
-                </Typography>
-                <Box sx={{ mb: 1 }}>
-                  <Typography component="span" variant="h3" sx={{ fontWeight: "bold" }}>
-                    {plan.price}
-                  </Typography>
-                  <Typography component="span" variant="body1" sx={{ color: "text.secondary" }}>
-                    {" "}
-                    {plan.period}
-                  </Typography>
-                </Box>
-                <Typography variant="body2" sx={{ color: "text.secondary", mb: 3 }}>
-                  {plan.description}
-                </Typography>
 
-                <List sx={{ mb: 3, flexGrow: 1 }}>
+              <div className="p-8 pt-10 flex flex-col h-full">
+                <header className="text-center mb-6">
+                  <h3 className="text-3xl font-bold mb-3" style={{ color: "#1A3B5C" }}>
+                    {plan.name}
+                  </h3>
+
+                  <div className="mb-3">
+                    <span className="text-5xl font-bold" style={{ color: "#1A3B5C" }}>
+                      {plan.price}
+                    </span>
+                    <span className="text-gray-600 ml-2">{plan.period}</span>
+                  </div>
+
+                  <p className="text-gray-600">{plan.description}</p>
+                </header>
+
+                <ul className="space-y-4 mb-8 grow">
                   {plan.features.map((feature, featureIndex) => (
-                    <ListItem key={featureIndex} disablePadding sx={{ mb: 1.5 }}>
-                      <ListItemIcon sx={{ minWidth: 32 }}>
-                        <Check size={20} color="#4FD1C5" />
-                      </ListItemIcon>
-                      <ListItemText
-                        primary={feature}
-                      />
-                    </ListItem>
+                    <li key={featureIndex} className="flex items-start gap-3">
+                      <div
+                        className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
+                        style={{ backgroundColor: "#d63624" }}
+                      >
+                        <Check size={16} className="text-white" strokeWidth={3} />
+                      </div>
+                      <span className="text-gray-700 leading-relaxed">{feature}</span>
+                    </li>
                   ))}
-                </List>
+                </ul>
 
-                <Button
-                  variant="contained"
-                  fullWidth
-                  href="#contact"
-                  sx={{
-                    borderRadius: "50px",
-                    py: 1.5,
-                    bgcolor: plan.popular ? "black" : "primary.main",
-                    color: "white",
-                    "&:hover": {
-                      bgcolor: plan.popular ? "#374151" : "primary.dark",
-                    },
-                  }}
-                  onClick={() => handleGetStarted()}
-                >
-                  Get Started
-                </Button>
-              </CardContent>
-            </Card>
+                <footer className="mt-auto">
+                  <a
+                    href="#contact"
+                    className="block w-full py-3.5 px-6 rounded-full text-white font-semibold text-center transition-all duration-300 hover:shadow-lg hover:scale-105"
+                    style={{
+                      backgroundColor: plan.popular ? "#1A3B5C" : "#d63624",
+                    }}
+                    onClick={() => router.push('/#signup')}
+                  >
+                    Get Started
+                  </a>
+                </footer>
+              </div>
+            </article>
           ))}
-        </Box>
+        </div>
 
-
-        <Typography variant="body2" sx={{ mt: 4, textAlign: "center", color: "text.secondary" }}>
-          All prices include VAT. Cancel anytime, no questions asked.
-        </Typography>
-      </Container>
-    </Box>
+        <footer className="mt-8">
+          <p className="text-center text-gray-600">All prices include VAT. Cancel anytime, no questions asked.</p>
+        </footer>
+      </div>
+    </section>
   )
 }

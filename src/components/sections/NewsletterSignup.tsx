@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Mail, CheckCircle2, Shield } from "lucide-react"
-import { BrevoAPI } from "../../services/brevoAPI"
+import { BrevoAPI } from "../../api/brevoAPI"
 
 
 export function NewsletterSignup() {

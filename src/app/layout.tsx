@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import '../index.css'
 import { HeaderProvider } from '../providers/HeadeProvider'
 import { FooterProvider } from '../providers/FooterProvider'
-import { ScrollManager } from '../components/ScrollManager'
 
 export const metadata: Metadata = {
   title: 'Recoveride: Your E-Bike Recovery Partner',
@@ -17,10 +16,9 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" type="image" href="/assets/recoverideLogo.png" />
         <body>
-          <ScrollManager />
-            <HeaderProvider/>
-              {children}
-            <FooterProvider />
+          <HeaderProvider/>
+            {children}
+          <FooterProvider />
         </body>
     </html>
   )

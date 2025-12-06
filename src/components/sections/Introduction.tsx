@@ -3,7 +3,7 @@
 import { Mail, Shield, MapPin, Clock } from "lucide-react"
 import type React from "react"
 import { useState } from "react"
-import { BrevoAPI } from "../../services/brevoAPI"
+import { BrevoAPI } from "../../api/brevoAPI"
 
 export function Introduction() {
 

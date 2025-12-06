@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Box, Container, Typography, TextField, Button, Alert } from "@mui/material"
 import { CheckCircle, Circle } from "lucide-react"
-import { BrevoAPI } from "../services/brevoAPI"
+import { BrevoAPI } from "../api/brevoAPI"
 
 export function LandingPage() {
   const [email, setEmail] = useState("")
