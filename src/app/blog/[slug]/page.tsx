@@ -6,10 +6,8 @@ export function generateStaticParams() {
   ];
 }
 
-export default function BlogArticlePage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  return <ArticlePage slug={params.slug} />;
+export default async function BlogArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
+  return <ArticlePage slug={slug} />;
 }
