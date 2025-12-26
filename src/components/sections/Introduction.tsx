@@ -97,8 +97,8 @@ export function Introduction() {
           </div>
 
           <p className="mb-6 sm:mb-8 text-pretty text-base sm:text-lg md:text-xl leading-relaxed text-white/90 max-w-3xl">
-            We remove the stress of bike theft with a complete e-bike terugvinden service that helps you find and recover your stolen e-bike fast. 
-            From GPS locatie tracking to police/insurer reporting support, our recovery team coordinates every step so you can get back on your bike fast.
+            We remove the stress of bike theft with a complete e-bike recovery service that helps you find and recover your stolen e-bike fast. 
+            From GPS location tracking to police/insurer reporting support, our recovery team coordinates every step so you can get back on your bike fast.
           </p>
 
           <div className="max-w-2xl rounded-2xl bg-white/10 backdrop-blur-md p-4 sm:p-6 border border-white/20 shadow-2xl">

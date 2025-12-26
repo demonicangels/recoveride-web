@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+# Recoveride web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Recoveride Web** is the official website for **Recoveride**, a startup focused on providing bike protection and recovery services. This website, built with **Next.js** and **TypeScript**, allows users to sign up with their email for early access and contact the support team directly. The website integrates with **Brevo API** for email campaign signups and **EmailJS** for handling emails from the contact form of the website.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Email Campaign Signup**: Users can sign up for the early acess email campaign via the integrated Brevo API.
+- **Contact Form**: A dynamic contact form powered by **EmailJS**, allowing users to send messages directly to the support team of Recoveride.
+- **Report your bike as stolen**: A dynamic form allowing users to notify the recovery team upon their bike being stolen. 
+- **Responsive Design**: Fully responsive layout, optimized for both mobile and desktop devices.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **Next.js**: Framework for building the website.
+- **TypeScript**: For type safety and enhanced development.
+- **Brevo API**: For handling the email campaigns, subscriptions for early access, and managing user email data.
+- **EmailJS**: For submitting the contact form data directly to the email inbox without the need for a separate backend.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js (LTS version recommended)
+- npm or yarn (for package management)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Steps
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Clone the repository:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   ```
+   $ git clone https://github.com/your-username/recoveride-web.git
+   $ cd recoveride-web
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. Install dependencies:
+  
+    With npm:
+
+    ``` 
+    $ npm install
+    ```
+  
+    Or with yarn:
+
+    ```
+    $ yarn install
+    ```
+3. Create a **`.env`** file at the root of the project and add the following environment variables from **`env.example`**:
+    ```
+    NEXT_PUBLIC_BREVO_API_KEY=your_brevo_api_key_here
+    NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_emailjs_service_id_here
+    NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID=your_emailjs_contact_template_id_here
+    NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID=your_emailjs_autoreply_template_id_here
+    NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_emailjs_public_key_here
+    ```
+    Replace the placeholder values with your actual API keys from Brevo and EmailJS.
+
+4. Run the development server 
+
+    With npm:
+
+    ``` 
+    $ npm run dev
+    ```
+  
+    Or with yarn:
+
+    ```
+    $ yarn dev
+    ```
+
+    Visit http://localhost:3000 in your browser to see the website in action.
+
+## Temporary Access
+
+The website can be temporarily accessed from its production deployment at [https://recoveride.nl](https://recoveride.nl).

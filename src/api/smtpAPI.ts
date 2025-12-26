@@ -1,47 +1,51 @@
-// import { createClient } from "smtpexpress";
+import emailjs from '@emailjs/browser';
 
 
+export class SmtpAPI {
 
-// export class SmtpAPI {
-
-//     async sendEmail(emailData: { name: string, email: string, phone: string, message: string }) : Promise<any> {
-
-//         try{
-
-//             const smtpClient = createClient({
-//                 projectId: "sm0pid-8UynBgfjmGLpctgVOXmylveGI",
-//                 projectSecret: "f2c284bda7db77a0c99cb12c11f0c6680d8dd1e1a052249d69",
-//             });
-
-//             await smtpClient.sendApi.sendMail({
-//                 subject: `New contact form submission from ${emailData.name}`,
-//                 message: `<p><strong>Email:</strong> ${emailData.email}</p>
-//                           <p><strong>Content:</strong> ${emailData.message}</p>`,
-//                 sender:{
-//                     name: "Recoveride Contact Form",
-//                     email: "recoveride--8e105b@ensend.me"
-//                 },
-//                 recipients: {
-//                     email: "recoveridenl@gmail.com"
-//                 }
-//             });
+    private serviceId : string = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '';
+    private contactTemplateId : string = process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID || '';
+    private publicKey : string = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '';
+    private autoReplyTemplateId : string = process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID || '';
 
 
-//             // const response = await fetch("/.netlify/functions/brevo-create-contact", {
-//             //     method: "POST",
-//             //     headers: {
-//             //         "accept": "application/json",
-//             //         "content-Type": "application/json",
-//             //     },
-//             //     body: JSON.stringify({ email: emailData.email, name: emailData.name })
-//             // });
+    async sendEmail(formData: { name: string; email: string; phone: string; message: string; }) {
+        console.log("Sending email with data:", formData);
 
-//             // if (!response.ok) throw new Error(`Failed sending email via SMTP: ${response.status} ${response.statusText}`);
+        const data = {
+            'name': formData.name,
+            'message': formData.message,    
+            'email': formData.email,
+            'phone': formData.phone,
+        }
 
-//         }catch(error){
-//             console.error("Error in sendEmail:", error);
-//             throw error;
-//         }
-//     }
+        const response = await emailjs.send(
+            this.serviceId,
+            this.contactTemplateId,
+            data,
+            this.publicKey,
+        );
 
-// }
+        console.log("EmailJS response:", response);
+        return response;        
+    }
+
+    async sendAutoReply(to: { name: string; email: string; }) {
+        console.log("Sending auto-reply to:", to.name, "Email:", to.email);
+
+        const data = {
+            'to_name': to.name,
+            'to_email': to.email,    
+        }
+
+        const response = await emailjs.send(
+            this.serviceId,
+            this.autoReplyTemplateId,
+            data,
+            this.publicKey,
+        );
+
+        console.log("Auto-reply EmailJS response:", response);
+        return response;
+    }
+}

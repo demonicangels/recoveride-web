@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button, Card, CardContent } from "@mui/material"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { SmtpAPI } from "../api/smtpAPI";
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -13,14 +14,42 @@ export function ContactPage() {
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const api = new SmtpAPI();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
+
+    if (!formData.email || !formData.message) {
+      setSubmitted(false);
+      return;
+    }
+    
     console.log("Form submitted:", formData)
+
+    const result = await api.sendEmail(formData);
+
+    if (!result) {
+      setSubmitted(false);
+      return;
+    }
+
+    console.log("Email sent result:", result);
+
+    const autoReplyResult = await api.sendAutoReply({ name: formData.name, email: formData.email });
+
+    if(!autoReplyResult) {
+      setSubmitted(false);
+      return;
+    }
+
+    console.log("Auto-reply sent result:", autoReplyResult);
+    
     setSubmitted(true)
+
     setTimeout(() => {
       setSubmitted(false)
       setFormData({ name: "", email: "", phone: "", message: "" })
+
     }, 3000)
   }
 
