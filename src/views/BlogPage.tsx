@@ -2,41 +2,7 @@
 
 import { ArrowRight, Calendar, Shield, MapPin, Users, FileText } from "lucide-react"
 import { useRouter } from "next/navigation"
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "Practical Tips To Help You Protect Your Bike From Theft",
-    description: "7 essential actions every e-bike owner should take to minimize the risk of theft and keep their ride secure.",
-    image: "/assets/ebike_safety_hero.jpeg",
-    date: "December 01, 2025",
-    path: "/blog/what-to-do-after-bike-stolen"
-  },
-  // {
-  //   id: 2,
-  //   title: "Understanding E-Bike Theft Statistics in the Netherlands",
-  //   description: "Explore the latest data on e-bike theft trends across Dutch cities and learn which areas are most affected.",
-  //   image: "/data-visualization-of-bike-theft-statistics.jpg",
-  //   date: "March 5, 2025",
-  //   path: "/blog/e-bike-theft-statistics"
-  // },
-  // {
-  //   id: 3,
-  //   title: "How GPS Tracking Technology Helps Recover Stolen Bikes",
-  //   description: "Discover how modern GPS technology is revolutionizing bike recovery and increasing the chances of getting your e-bike back.",
-  //   image: "/gps-tracker-device-on-bicycle.jpg",
-  //   date: "February 28, 2025",
-  //   path: "/blog/gps-tracking-technology"
-  // },
-  // {
-  //   id: 4,
-  //   title: "Insurance Claims: What You Need to Know",
-  //   description: "Navigate the complexities of filing insurance claims for stolen e-bikes with our comprehensive guide to documentation and processes.",
-  //   image: "/insurance-documents-and-paperwork.jpg",
-  //   date: "February 15, 2025",
-  //   path: "/blog/insurance-claims-guide"
-  // }
-]
+import { articles } from "../lib/articles-data";
 
 export function BlogPage() {
     const router = useRouter();
@@ -203,16 +169,16 @@ export function BlogPage() {
           </header>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
+            {articles.map((post) => (
               <article
                 key={post.id}
                 className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col cursor-pointer"
-                onClick={() => router.push(post.path)}
+                onClick={() => router.push(`/blog/${post.slug}`)}
               >
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
                   <img
-                    src={post.image || "/placeholder.svg"}
+                    src={post.heroImage || "/placeholder.svg"}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     
@@ -239,7 +205,7 @@ export function BlogPage() {
                   <p className="text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">{post.description}</p>
 
                   {/* Read More Button */}
-                  <button className="inline-flex items-center gap-2 text-[#d63624] font-semibold text-sm group/btn hover:gap-3 transition-all duration-300 cursor-pointer" onClick={() => router.push(post.path)}>
+                  <button className="inline-flex items-center gap-2 text-[#d63624] font-semibold text-sm group/btn hover:gap-3 transition-all duration-300 cursor-pointer" onClick={() => router.push(`/blog/${post.slug}`)}>
                     Read More
                     <ArrowRight size={16} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </button>

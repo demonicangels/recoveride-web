@@ -2,7 +2,8 @@ import { ArticlePage } from "../../../views/ArticlePage";
 
 export function generateStaticParams() {
   return [
-    { slug: "what-to-do-after-bike-stolen" },
+    { slug: "protect-your-bike-from-theft" },
+    { slug: "bike-theft-netherlands-real-stories"}
   ];
 }
 
