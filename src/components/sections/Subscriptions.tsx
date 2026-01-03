@@ -37,62 +37,56 @@ export function SubscriptionsSection() {
   const router = useRouter();
 
   return (
-    <section id="subscriptions" className="bg-gray-50 py-16 md:py-24">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section id="subscriptions" className="bg-gray-50 py-12 md:py-16 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <header className="text-center mb-4">
-          <h3 className="text-lg font-semibold mb-2" style={{ color: "#1A3B5C" }}>
+          <h3 className="text-base sm:text-lg font-semibold mb-2" style={{ color: "#1A3B5C" }}>
             Subscriptions
           </h3>
         </header>
 
-        <div className="max-w-3xl mx-auto mb-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#1A3B5C" }}>
+        <div className="max-w-3xl mx-auto mb-8 md:mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 px-2" style={{ color: "#1A3B5C" }}>
             Choose Your Protection Plan
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed px-2">
             All plans include a GPS tracker and 30-day money-back guarantee
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto ml-106">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
             <article
               key={index}
               className="relative bg-white rounded-2xl shadow-lg overflow-visible transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-              // style={{
-              //   ...(plan.popular && {
-              //     outline: "4px solid #1A3B5C",
-              //   }),
-              // }}
             >
-
-              <div className="p-8 pt-10 flex flex-col h-full">
+              <div className="p-6 sm:p-8 pt-8 sm:pt-10 flex flex-col h-full">
                 <header className="text-center mb-6">
-                  <h3 className="text-3xl font-bold mb-3" style={{ color: "#1A3B5C" }}>
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: "#1A3B5C" }}>
                     {plan.name}
                   </h3>
 
                   <div className="mb-3">
-                    <span className="text-5xl font-bold" style={{ color: "#1A3B5C" }}>
+                    <span className="text-4xl sm:text-5xl font-bold" style={{ color: "#1A3B5C" }}>
                       {plan.price}
                     </span>
-                    <span className="text-gray-600 ml-2">{plan.period}</span>
+                    <span className="text-gray-600 ml-2 text-sm sm:text-base">{plan.period}</span>
                   </div>
 
-                  <p className="text-gray-600">{plan.description}</p>
+                  <p className="text-sm sm:text-base text-gray-600">{plan.description}</p>
                 </header>
 
-                <ul className="space-y-4 mb-8 grow">
+                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 grow">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-3">
                       <div
-                        className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
+                        className="shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center mt-0.5"
                         style={{ backgroundColor: "#d63624" }}
                       >
-                        <Check size={16} className="text-white" strokeWidth={3} />
+                        <Check size={14} className="text-white sm:w-4 sm:h-4" strokeWidth={3} />
                       </div>
-                      <span className="text-gray-700 leading-relaxed">{feature}</span>
+                      <span className="text-sm sm:text-base text-gray-700 leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -100,11 +94,11 @@ export function SubscriptionsSection() {
                 <footer className="mt-auto">
                   <a
                     href="#contact"
-                    className="block w-full py-3.5 px-6 rounded-full text-white font-semibold text-center transition-all duration-300 hover:shadow-lg hover:scale-105"
+                    className="block w-full py-3 sm:py-3.5 px-6 rounded-full text-white font-semibold text-center text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:scale-105"
                     style={{
                       backgroundColor: plan.popular ? "#1A3B5C" : "#d63624",
                     }}
-                    onClick={() => router.push('/#signup')}
+                    onClick={() => router.push("/#signup")}
                   >
                     Get Started
                   </a>
@@ -114,8 +108,10 @@ export function SubscriptionsSection() {
           ))}
         </div>
 
-        <footer className="mt-8">
-          <p className="text-center text-gray-600">All prices include VAT. Cancel anytime, no questions asked.</p>
+        <footer className="mt-6 md:mt-8 px-4">
+          <p className="text-center text-gray-600 text-sm sm:text-base">
+            All prices include VAT. Cancel anytime, no questions asked.
+          </p>
         </footer>
       </div>
     </section>

@@ -77,45 +77,44 @@ export function HowItWorksSection() {
   }
 
   return (
-    <section id="how-it-works" className="bg-white py-12 sm:py-16 md:py-20 lg:py-32 scroll-mt-24 md:scroll-mt-32">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="mx-auto mb-3 sm:mb-4 text-center">
-          <span className="text-base sm:text-lg font-semibold text-primary">How It Works</span>
+    <section id="how-it-works" className="bg-white py-8 sm:py-12 md:py-16 lg:py-24 scroll-mt-20 md:scroll-mt-32">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
+        <div className="mx-auto mb-2 sm:mb-3 md:mb-4 text-center">
+          <span className="text-sm sm:text-base md:text-lg font-semibold text-[#1A3B5C]">How It Works</span>
         </div>
 
-        <div className="mx-auto mb-10 sm:mb-12 md:mb-16 max-w-3xl text-center px-4">
-          <h2 className="mb-3 sm:mb-4 text-balance text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+        <div className="mx-auto mb-6 sm:mb-8 md:mb-12 lg:mb-16 max-w-3xl text-center px-2 sm:px-4">
+          <h2 className="mb-2 sm:mb-3 md:mb-4 text-balance text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-[#1A3B5C]">
             Full E-Bike Protection in Four Steps
           </h2>
-          <p className="text-pretty text-base sm:text-lg leading-relaxed text-muted-foreground">
+          <p className="text-pretty text-sm sm:text-base md:text-lg leading-relaxed text-gray-600">
             We've made it simple so you can focus on what matters - enjoying your ride
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-center">
           {/* Carousel */}
           <div className="flex-1 w-full relative">
-            {/* Navigation arrows - visible on mobile */}
             <button
               onClick={goToPrevious}
               disabled={activeSlide === 0}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed rounded-full p-2 shadow-lg transition-all md:hidden"
+              className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 z-10 bg-white/95 hover:bg-white disabled:opacity-20 disabled:cursor-not-allowed rounded-full p-2 sm:p-2.5 shadow-lg transition-all md:hidden touch-manipulation"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="h-5 w-5 text-black" />
+              <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 text-[#1A3B5C]" />
             </button>
 
             <button
               onClick={goToNext}
               disabled={activeSlide === steps.length - 1}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed rounded-full p-2 shadow-lg transition-all md:hidden"
+              className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-10 bg-white/95 hover:bg-white disabled:opacity-20 disabled:cursor-not-allowed rounded-full p-2 sm:p-2.5 shadow-lg transition-all md:hidden touch-manipulation"
               aria-label="Next slide"
             >
-              <ChevronRight className="h-5 w-5 text-black" />
+              <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-[#1A3B5C]" />
             </button>
 
             <div
-              className="overflow-hidden"
+              className="overflow-hidden rounded-lg"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
@@ -125,36 +124,37 @@ export function HowItWorksSection() {
                 style={{ transform: `translateX(-${activeSlide * 100}%)` }}
               >
                 {steps.map((step, index) => (
-                  <div key={index} className="min-w-full px-1 sm:px-2">
-                    <Card className="border-none bg-secondary/50 shadow-lg">
-                      <CardContent className="p-4 sm:p-6 md:p-8">
+                  <div key={index} className="min-w-full px-0.5 sm:px-1 md:px-2">
+                    <Card className="border-none bg-gray-50 shadow-lg">
+                      <CardContent className="p-3 sm:p-4 md:p-6 lg:p-8">
                         {/* Icon */}
-                        <div className="mb-4 sm:mb-6 flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-white shadow-md">
-                          <step.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary" />
+                        <div className="mb-3 sm:mb-4 md:mb-6 flex h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 items-center justify-center rounded-full bg-white shadow-md">
+                          <step.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 text-[#1A3B5C]" />
                         </div>
 
-                        <h3 className="mb-2 sm:mb-3 text-xl sm:text-2xl font-bold text-foreground">{step.title}</h3>
-                        <p className="text-sm sm:text-base leading-relaxed text-muted-foreground mb-4 sm:mb-6">
+                        <h3 className="mb-2 sm:mb-2.5 md:mb-3 text-lg sm:text-xl md:text-2xl font-bold text-[#1A3B5C] leading-tight">
+                          {step.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm md:text-base leading-relaxed text-gray-600 mb-3 sm:mb-4 md:mb-6">
                           {step.description}
                         </p>
 
                         {/* Image + annotations */}
-                        <div className="relative mt-4 sm:mt-6">
+                        <div className="relative mt-3 sm:mt-4 md:mt-6">
                           {step.hasAnnotations ? (
                             <div className="relative">
                               <img
                                 src={step.image || "/placeholder.svg"}
                                 alt={step.title}
-                                className="w-full h-auto rounded-lg"
-                                
+                                className="w-full h-auto rounded-lg shadow-sm"
                               />
 
-                              {/* Battery - adjusted for mobile */}
-                              <div className="absolute top-[38%] left-[20%] sm:left-[24%] flex items-center gap-1">
-                                <span className="bg-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-semibold text-black shadow-md">
+                              {/* Battery */}
+                              <div className="absolute top-[38%] left-[20%] sm:left-[23%] md:left-[20%] flex items-center gap-0.5 sm:gap-1">
+                                <span className="bg-white px-1 sm:px-1.5 md:px-2 py-0.5 sm:py-0.5 md:py-1 rounded text-[8px] sm:text-[10px] md:text-xs font-semibold text-black shadow-md">
                                   here
                                 </span>
-                                <svg width="40" height="2" className="sm:w-[60px]">
+                                <svg width="25" height="2" className="sm:w-10 md:w-[60px]">
                                   <defs>
                                     <marker
                                       id="arrowhead1"
@@ -170,22 +170,21 @@ export function HowItWorksSection() {
                                   <line
                                     x1="0"
                                     y1="1"
-                                    x2="40"
+                                    x2="100%"
                                     y2="1"
-                                    className="sm:x2-[60]"
                                     stroke="black"
-                                    strokeWidth="2"
+                                    strokeWidth="1.5"
                                     markerEnd="url(#arrowhead1)"
                                   />
                                 </svg>
                               </div>
 
-                              {/* Saddle - adjusted for mobile */}
-                              <div className="absolute top-[27%] right-[30%] sm:right-[35%] flex flex-col items-center gap-0.5 sm:gap-1">
-                                <span className="bg-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-semibold text-black shadow-md">
+                              {/* Saddle */}
+                              <div className="absolute top-[25%] sm:top-[26%] right-[36%] sm:right-[36%] md:right-[36%] flex flex-col items-center gap-0.5 sm:gap-0.5 md:gap-1">
+                                <span className="bg-white px-1 sm:px-1.5 md:px-2 py-0.5 sm:py-0.5 md:py-1 rounded text-[8px] sm:text-[10px] md:text-xs font-semibold text-black shadow-md">
                                   here
                                 </span>
-                                <svg width="2" height="30" className="sm:h-10">
+                                <svg width="2" height="20" className="sm:h-[30px] md:h-10">
                                   <defs>
                                     <marker
                                       id="arrowhead2"
@@ -202,17 +201,17 @@ export function HowItWorksSection() {
                                     x1="1"
                                     y1="0"
                                     x2="1"
-                                    y2="30"
+                                    y2="100%"
                                     stroke="black"
-                                    strokeWidth="2"
+                                    strokeWidth="1.5"
                                     markerEnd="url(#arrowhead2)"
                                   />
                                 </svg>
                               </div>
 
-                              {/* Wheel - adjusted for mobile */}
-                              <div className="absolute top-[63%] left-[25%] sm:left-[28%] flex flex-col items-center gap-0.5 sm:gap-1">
-                                <svg width="2" height="50" className="sm:h-20">
+                              {/* Wheel */}
+                              <div className="absolute top-[63%] sm:top-[63%] left-[23%] sm:left-[25%] md:left-[28%] flex flex-col items-center gap-0.5 sm:gap-0.5 md:gap-1">
+                                <svg width="2" height="35" className="sm:h-[50px] md:h-20">
                                   <defs>
                                     <marker
                                       id="arrowhead-up"
@@ -227,16 +226,16 @@ export function HowItWorksSection() {
                                   </defs>
                                   <line
                                     x1="1"
-                                    y1="50"
+                                    y1="100%"
                                     x2="1"
                                     y2="0"
                                     stroke="black"
-                                    strokeWidth="2"
+                                    strokeWidth="1.5"
                                     markerEnd="url(#arrowhead-up)"
                                   />
                                 </svg>
 
-                                <span className="bg-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-semibold text-black shadow-md">
+                                <span className="bg-white px-1 sm:px-1.5 md:px-2 py-0.5 sm:py-0.5 md:py-1 rounded text-[8px] sm:text-[10px] md:text-xs font-semibold text-black shadow-md">
                                   here
                                 </span>
                               </div>
@@ -257,14 +256,15 @@ export function HowItWorksSection() {
             </div>
           </div>
 
-          {/* Pagination - responsive layout */}
-          <div className="flex md:flex-col gap-3 sm:gap-4 justify-center">
+          <div className="flex md:flex-col gap-2 sm:gap-3 md:gap-4 justify-center items-center mt-2 md:mt-0">
             {steps.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveSlide(index)}
-                className={`h-3 w-3 sm:h-3.5 sm:w-3.5 rounded-full transition-all duration-300 ${
-                  activeSlide === index ? "bg-black scale-125" : "bg-gray-300 hover:bg-gray-400"
+                className={`h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 rounded-full transition-all duration-300 touch-manipulation ${
+                  activeSlide === index
+                    ? "bg-[#1A3B5C] scale-125 ring-2 ring-[#1A3B5C] ring-offset-2"
+                    : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -273,5 +273,5 @@ export function HowItWorksSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
