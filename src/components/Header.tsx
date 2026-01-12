@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [user, setUser] = useState<{name: string, email: string, phone: string}>(null as any)
   const router = useRouter()
-  let user = JSON.parse(localStorage.getItem("user") || "null");
 
   const links = [
     { name: "Home", path: "/" },
@@ -17,6 +17,17 @@ export function Header() {
     { name: "Contact", path: "/contact" },
     { name: "Blog", path: "/blog" },
   ]
+
+  useEffect(() => {
+    const syncUser = () => {
+    const userData = localStorage.getItem("user")
+    setUser(userData ? JSON.parse(userData) : null) }
+
+    syncUser()
+
+    window.addEventListener("auth:change", syncUser)
+    return () => window.removeEventListener("auth:change", syncUser)
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">

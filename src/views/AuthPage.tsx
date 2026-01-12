@@ -61,7 +61,9 @@ export function AuthPage() {
 
     console.log("[v0] Signup attempt:", { name: signupData.name, email: signupData.email })
 
-    localStorage.setItem("user", JSON.stringify({ name: signupData.name, email: signupData.email, phoneNumber: signupData.phone }));
+    localStorage.setItem("user", JSON.stringify({ name: signupData.name, email: signupData.email, phone: signupData.phone }));
+
+    window.dispatchEvent(new Event("auth:change"));
 
     router.push("/profile");
 

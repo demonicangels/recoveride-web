@@ -1,26 +1,29 @@
 "use client"
 
-import { User, Mail, Bike, CreditCard, LogOut, Edit2, Plus } from "lucide-react"
-import { useState } from "react"
+import { User, Mail, Bike, CreditCard, LogOut, Edit2, Plus, Phone } from "lucide-react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { Card, CardContent } from "@mui/material"
 import type { BikeData } from "../types/bikeData";
+import type { UserData } from "../types/userData";
 
 export function ProfilePage() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
+  const [user, setUser] = useState<UserData | null>(null)
 
-  let currentUser = JSON.parse(localStorage.getItem("user") || "null");
+  useEffect(() => {
+      let data = localStorage.getItem("user");
+      setUser(data ? JSON.parse(data) : null);
+  
+  }, [])
 
-  if (!currentUser) {
-    router.push("/");
-    return null;
-  }
+  if (user === undefined) return null        
+  if (user === null) return null  
 
   const userData = {
-    fullName: currentUser.name as string,
-    email: currentUser.email as string,
-    phone: currentUser.phoneNumber as string,
+    fullName: user.name as string,
+    email: user.email as string,
+    phone: user.phone as string,
     plan: "",
     planPrice: "",
     bikesRegistered: 0,
@@ -32,9 +35,12 @@ export function ProfilePage() {
 
     localStorage.removeItem("user");
 
+    window.dispatchEvent(new Event("auth:change"));
+
+    router.push("/");
+
     console.log("[v0] Signing out user...")
 
-    
   }
 
 
@@ -65,8 +71,8 @@ export function ProfilePage() {
           {/* Left Column - User Info & Plan */}
           <div className="lg:col-span-2 space-y-6">
             {/* Personal Information Card */}
-            <Card className="shadow-lg">
-              <CardContent className="p-6 sm:p-8">
+            <div className="bg-white rounded-2xl shadow-lg">
+              <div className="p-6 sm:p-8">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2" style={{ color: "#1A3B5C" }}>
                     <User className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -98,19 +104,19 @@ export function ProfilePage() {
                   <div>
                     <label className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Phone Number</label>
                     <div className="mt-1 flex items-center gap-2">
-                      <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                       <p className="text-base sm:text-lg font-medium break-all" style={{ color: "#1A3B5C" }}>
                         {userData.phone || "Not provided"}
                       </p>
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
             {/* Registered Bikes Card */}
-            <Card className="shadow-lg">
-              <CardContent className="p-6 sm:p-8">
+            <div className="bg-white rounded-2xl shadow-lg">
+              <div className="p-6 sm:p-8">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-xl sm:text-2xl font-bold" style={{ color: "#1A3B5C" }}>
                     Registered Bikes
@@ -159,56 +165,45 @@ export function ProfilePage() {
                     <p className="text-gray-400 text-sm mt-2">Click "Add New Bike" to register your first bike</p>
                   </div>
                 )}
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           {/* Right Column - Subscription & Actions */}
           <div className="space-y-6">
             {/* Current Plan Card */}
-            <Card className="shadow-lg">
-              <CardContent className="p-6 sm:p-8">
+            <div className="bg-white rounded-2xl shadow-lg">
+              <div className="p-6 sm:p-8">
                 <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-6" style={{ color: "#1A3B5C" }}>
                   <CreditCard className="w-5 h-5 sm:w-6 sm:h-6" />
                   Current Plan
                 </h2>
 
-                { userData.plan ?  (<div className="p-6 rounded-2xl mb-6" style={{ backgroundColor: "#1A3B5C" }}>
-                  <div className="text-center text-white">
-                    <p className="text-sm uppercase tracking-wide mb-2">Subscribed to</p>
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-2">{userData.plan}</h3>
-                    <p className="text-lg font-semibold">{userData.planPrice}</p>
+                {userData.plan ? (
+                  <div className="p-6 rounded-2xl mb-6" style={{ backgroundColor: "#1A3B5C" }}>
+                    <div className="text-center text-white">
+                      <p className="text-sm uppercase tracking-wide mb-2">Subscribed to</p>
+                      <h3 className="text-2xl sm:text-3xl font-bold mb-2">{userData.plan}</h3>
+                      <p className="text-lg font-semibold">{userData.planPrice}</p>
+                    </div>
                   </div>
-                </div>) : (<p className="text-center text-gray-500 text-lg mb-5">No active subscriptions.</p>)}
-
-                {/* <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-2 text-sm text-gray-700">
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#d63624" }}></div>
-                    <span>24/7 Priority Support</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-700">
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#d63624" }}></div>
-                    <span>Bike Recovery Services</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-700">
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#d63624" }}></div>
-                    <span>GPS Tracker Included</span>
-                  </div>
-                </div> */}
+                ) : (
+                  <p className="text-center text-gray-500 text-lg mb-5">No active subscriptions.</p>
+                )}
 
                 <button
                   className="w-full py-3 rounded-full border-2 font-semibold text-sm text-blue-950 transition-all hover:shadow-lg cursor-pointer hover:bg-blue-950 hover:text-white"
-                  style={{ borderColor: "#1A3B5C"}}
+                  style={{ borderColor: "#1A3B5C" }}
                   onClick={() => router.push("/#subscriptions")}
                 >
                   Manage Subscription
                 </button>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
             {/* Sign Out Card */}
-            <Card className="shadow-lg">
-              <CardContent className="p-6 sm:p-8">
+            <div className="bg-white rounded-2xl shadow-lg">
+              <div className="p-6 sm:p-8">
                 <button
                   onClick={handleSignOut}
                   disabled={isLoading}
@@ -218,12 +213,12 @@ export function ProfilePage() {
                   <LogOut className="w-5 h-5" />
                   {isLoading ? "Signing Out..." : "Sign Out"}
                 </button>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
             {/* Quick Actions */}
-            <Card className="shadow-lg">
-              <CardContent className="p-6 sm:p-8">
+            <div className="bg-white rounded-2xl shadow-lg">
+              <div className="p-6 sm:p-8">
                 <h3 className="text-lg font-bold mb-4" style={{ color: "#1A3B5C" }}>
                   Quick Actions
                 </h3>
@@ -241,8 +236,8 @@ export function ProfilePage() {
                     Contact Support
                   </button>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </div>

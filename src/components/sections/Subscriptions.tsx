@@ -4,8 +4,21 @@ import { Check } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { SmtpAPI } from "../../api/smtpAPI";
 import { ToastContainer, toast } from "react-toastify"
+import { useEffect, useState } from "react";
 
 export function SubscriptionsSection() {
+
+  const [user, setUser] = useState<{name: string, email: string, phone: string}>(null as any)
+  const router = useRouter();
+  const api = new SmtpAPI();
+
+  const notify = () => toast.success("Request sent successfully! Our Team will contact you shortly.");
+
+  useEffect(() => {
+    let userData = localStorage.getItem("user");
+    setUser(userData ? JSON.parse(userData) : null);
+
+  }, [])
 
   const plans = [
     {
@@ -36,25 +49,16 @@ export function SubscriptionsSection() {
     // },
   ]
 
-  const router = useRouter();
-  const api = new SmtpAPI();
-
-  const notify = () => toast.success("Request sent successfully! Our Team will contact you shortly.");
-
-  let user = localStorage.getItem("user");
-
   const handleBuyRequest = async (planName: string) => {
 
     if (user) {
 
-      const userData = JSON.parse(user);
-
       const emailData = {
-        name: userData.name,
-        email: userData.email,
-        phone: userData.phoneNumber
+        name: user.name,
+        email: user.email,
+        phone: user.phone
         ,
-        message: `User ${userData.name} with email ${userData.email} and phone ${userData.phoneNumber} has requested to buy the ${planName} subscription plan. Please contact them to proceed with the purchase.`,
+        message: `User ${user.name} with email ${user.email} and phone ${user.phone} has requested to buy the ${planName} subscription plan. Please contact them to proceed with the purchase.`,
       };
 
       const result = await api.sendEmail(emailData)
@@ -66,7 +70,7 @@ export function SubscriptionsSection() {
 
       notify();
 
-      const reply = await api.sendAutoReply({ name: userData.name, email: userData.email });
+      const reply = await api.sendAutoReply({ name: user.name, email: user.email });
 
       if(!reply) {
         alert("There was an issue sending the confirmation email. Please contact support.");
