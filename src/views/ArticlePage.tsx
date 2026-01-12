@@ -172,7 +172,7 @@ export function ArticlePage({slug}: ArticlePageProps) {
         {/* Conclusion */}
         {article.conclusion && (
           <section className="mb-12 bg-linear-to-br from-[#1A3B5C] to-[#0f2942] text-white rounded-2xl p-8 shadow-lg">
-            <h2 className="text-3xl font-bold mb-6">Conclusion: Layered Protection Is the Best Defense</h2>
+            {/* <h2 className="text-3xl font-bold mb-6">Conclusion: Layered Protection Is the Best Defense</h2> */}
             <p className="text-lg leading-relaxed mb-4">{article.conclusion.lead}</p>
             <p className="text-lg leading-relaxed mb-4">{article.conclusion.body}</p>
             <a

@@ -118,31 +118,31 @@ export const articles = [
             url: "https://maastrichtbereikbaar.nl/en/fiets-op-slot",
           },
           {
-            label: "IamExpat – Bike safety tips in the Netherlands.",
+            label: "IamExpat - Bike safety tips in the Netherlands.",
             url: "https://iamexpat.nl"
           },
           {
-            label: "DutchReview – Common mistakes that lead to bike theft. ",
+            label: "DutchReview - Common mistakes that lead to bike theft. ",
             url: "https://dutchreview.com"
           },
           {
-            label: "Holland Cycling – Bicycle theft prevention guide.",
+            label: "Holland Cycling - Bicycle theft prevention guide.",
             url: "https://holland-cycling.com"
           },
           {
-            label: "Comodule – How to prevent e-bike theft.",
+            label: "Comodule - How to prevent e-bike theft.",
             url: "https://comodule.com"
           },{
-            label: "HelloTempo – How to prevent e-bike theft (2025).",
+            label: "HelloTempo - How to prevent e-bike theft (2025).",
             url: "https://hellotempo.com"
           },{
-            label: "Movcan Bike – Electric bike anti-theft guide (2025).",
+            label: "Movcan Bike - Electric bike anti-theft guide (2025).",
             url: "https://movcan-bike.com"
           },{
-            label: "Cycling Electric – GPS trackers for e-bike anti-theft.",
+            label: "Cycling Electric - GPS trackers for e-bike anti-theft.",
             url: "https://cyclingelectric.com"
           },{
-            label: "Stichting ART – Prevent bicycle theft.",
+            label: "Stichting ART - Prevent bicycle theft.",
             url: " https://stichtingart.nl"
           },
         
@@ -155,12 +155,13 @@ export const articles = [
     slug: "bike-theft-netherlands-real-stories",
     title: "Bike Theft in the Netherlands: Real Stories, E-Bike Theft Trends & How to Recover a Stolen Bike",
     heroImage: "/assets/bike_theft_stories_hero.jpg",
+    description: "Bike theft is a widespread issue in the Netherlands, affecting cyclists across cities and regions. Here are real stories from cyclists.",
     date: "December 28, 2025",
     readTime: "8 min read",
     author: "Recoveride Team",
     introduction: {
       lead:
-        "Bike theft affects cyclists across the Netherlands — from Amsterdam and Rotterdam to Eindhoven, Utrecht, and Groningen. Urban areas see higher rates, but smaller cities are not immune.",
+        "Bike theft affects cyclists across the Netherlands - from Amsterdam and Rotterdam to Eindhoven, Utrecht, and Groningen. Urban areas see higher rates, but smaller cities are not immune.",
       body: [
         "With more people relying on electric bikes for daily commuting, the need for better bike theft prevention and stolen bike recovery solutions has never been greater.",
         "Every year, hundreds of thousands of bicycles are reported stolen in the Netherlands.",
@@ -182,7 +183,7 @@ export const articles = [
       {
         title: "Stolen Bikes and Police Reports: Why Many Cases Are Closed",
         quote:
-          "“Had an attempted break-in while we were at home. The police arrived quickly and caught the guy. He had a 20 cm kitchen knife. Three months later: no charges, no court case, no record. — Fair_Flight_1",
+          "“Had an attempted break-in to steal my e-bike from my backyard while we were at home. The police arrived quickly and caught the guy. He had a 20 cm kitchen knife. Three months later: no charges, no court case, no record. — Fair_Flight_1",
         content: [
           "Stories like this are not shared to antagonize the police. Most cyclists understand that law enforcement faces limited resources and overwhelming case volumes.",
           "Bike theft is rarely treated as a high-priority crime unless violence is involved. Even when security camera footage exists, identifying and prosecuting offenders — especially those operating across regions — is difficult.",
@@ -192,7 +193,7 @@ export const articles = [
       {
         title: "E-Bike Theft in the Netherlands: Why Professionals Target Electric Bikes",
         quote:
-          "“I’ve had my e-bike stolen twice this year. I’m on my third one now. Locks don’t do anything — e-bikes are stolen by professionals.” — unicorn_blaster",
+          "“I’ve had my e-bike stolen twice this year. I’m on my third one now. Locks don’t do anything - e-bikes are stolen by professionals.” — unicorn_blaster",
         content: [
           "E-bike theft in the Netherlands has increased sharply in recent years. Electric bikes are valuable, easy to resell, and often targeted by organized theft groups.",
           "Many riders report: Expensive locks being cut in public areas,  Theft happening in broad daylight, Bikes disappearing within minutes",
@@ -214,7 +215,7 @@ export const articles = [
         title: "Why Bike Insurance Alone Isn’t Enough",
         highlight: true,
         content: [
-          "Bike insurance can help replace a stolen bike financially — but it doesn’t: Recover sentimental value, Reduce the disruption of losing your daily transport, Prevent repeat theft, Help locate where your stolen bike actually went",
+          "Bike insurance can help replace a stolen bike financially - but it doesn’t: Recover sentimental value, Reduce the disruption of losing your daily transport, Prevent repeat theft, Help locate where your stolen bike actually went",
           "Many cyclists eventually realize that insurance handles the aftermath, not the recovery.",
         ],
       },
@@ -222,7 +223,7 @@ export const articles = [
         title: "A Smarter Way to Deal With Bike Theft in the Netherlands",
         highlight: true,
         content: [
-          "Bike theft in the Netherlands isn’t going away — but how cyclists respond can change.",
+          "Bike theft in the Netherlands isn’t going away - but how cyclists respond can change.",
           "Many cyclists eventually realize that insurance handles the aftermath, not the recovery.",
           "Recoveride was created from cyclists for cyclists to support the mitigation of bike theft, combining: Discreet GPS tracking, Documentation support, Professional recovery assistance",
           "Instead of focusing only on insurance payouts, the goal is simple: increase the chances of recovering your stolen bike.",
@@ -238,4 +239,90 @@ export const articles = [
       text: "The following stories are anonymized excerpts from public discussions shared by cyclists on Reddit, used here to illustrate common experiences with bike theft in the Netherlands.",
     }
   },
+  {
+    id: 3,
+    slug: "fiets-gestolen-wat-nu",
+    title: "Fiets gestolen: wat nu? Dit kun je doen na een diefstal",
+    heroImage: "/assets/bike-theft-wat-nu.jpeg",
+    description: "Je fiets is gestolen en je vraagt je af wat nu? Lees welke stappen je direct kunt nemen en hoe je de kans op terugvinden vergroot.",
+    date: "January 12, 2026",
+    readTime: "6 min read",
+    author: "Recoveride Team",
+    introduction: {
+      lead:
+        "Je loopt terug naar de plek waar je je fiets hebt neergezet. Nog een keer kijken. Misschien iets verderop. Maar al snel dringt het door: je fiets is weg.",
+      body:
+        "Of het nu een oude stadsfiets is of een splinternieuwe e-bike, het gevoel is hetzelfde. Frustratie, ongeloof en vooral de vraag: wat nu?",
+    },
+    sections: [
+      {
+        number: 1,
+        title: "De eerste minuten na de diefstal",
+        content: [
+          "In de eerste minuten na een fietsdiefstal hopen veel mensen nog dat het om een vergissing gaat. Misschien is de fiets verplaatst of tijdelijk weggehaald.",
+          "Toch blijkt in de meeste gevallen al snel dat het inderdaad om diefstal gaat. En vanaf dat moment begint een proces dat voor veel mensen verrassend onduidelijk is.",
+        ],
+      },
+      {
+        number: 2,
+        title: "Aangifte doen: waarom dit toch belangrijk is",
+        content: [
+          "De eerste concrete stap is aangifte doen bij de politie. Dit kan online en kost meestal weinig tijd, maar voelt voor veel mensen zinloos.",
+          "Toch is aangifte essentieel. Zonder aangifte kan een fiets officieel niet worden teruggegeven, zelfs niet als deze later wordt teruggevonden.",
+          "Daarnaast helpt aangifte om diefstalpatronen inzichtelijk te maken en is het noodzakelijk voor eventuele verzekeringstrajecten. Hoe eerder je aangifte doet, hoe beter.",
+        ],
+      },
+      {
+        number: 3,
+        title: "Zelf zoeken: hoopvol maar vaak teleurstellend",
+        content: [
+          "Na de aangifte proberen veel mensen zelf nog iets te doen. Fietsen worden gemeld op openbare registratiesites of men speurt Marktplaats en andere platforms af.",
+          "Hoewel dit voelt alsof je actief bezig bent, is de realiteit vaak hard. In Nederland worden enorm veel fietsen gestolen en slechts een klein deel wordt daadwerkelijk teruggevonden.",
+          "Dat ligt niet aan onwil, maar aan beperkte capaciteit. Een fiets zonder extra identificatie of locatiegegevens verdwijnt vaak snel uit beeld.",
+        ],
+      },
+      {
+        number: 4,
+        title: "E-bikes en tracking: meer houvast, maar geen garantie",
+        highlight: true,
+        content: [
+          "Bij e-bikes ligt de situatie iets anders. Ze zijn waardevoller en aantrekkelijker voor dieven, maar ook beter te volgen - mits er vooraf iets is ingebouwd.",
+          "Een fiets met GPS-tracking geeft na diefstal ineens houvast. Locatiegegevens maken gerichter handelen mogelijk.",
+          "Toch is alleen weten waar een fiets is vaak niet genoeg. Zonder ervaring, opvolging en een veilige aanpak blijft het lastig om daadwerkelijk iets met die informatie te doen.",
+        ],
+      },
+      {
+        number: 5,
+        title: "Waarom veel mensen dit pas na de diefstal beseffen",
+        content: [
+          "Voor veel fietsbezitters komt de realisatie te laat. Pas na de diefstal wordt duidelijk hoeveel tijd, energie en frustratie ermee gemoeid is.",
+          "De aangifte, het wachten, de onzekerheid en uiteindelijk vaak de conclusie dat de fiets waarschijnlijk niet meer terugkomt.",
+          "Het is precies om die reden dat steeds meer mensen anders gaan nadenken over hun volgende fiets en de maatregelen die ze vooraf nemen.",
+        ],
+      },
+      {
+        number: 6,
+        title: "Vooraf nadenken: van voorkomen naar terugvinden",
+        highlight: true,
+        content: [
+          "Vooraf maatregelen nemen voorkomt veel ellende achteraf. Niet door alleen harder te hopen of een nóg duurder slot te kopen.",
+          "Steeds meer fietsbezitters benaderen diefstal als een probleem dat je actief wilt kunnen oplossen.",
+          "Verborgen GPS-tracking, gecombineerd met een dienst die is ingericht op terugvinden in plaats van alleen registreren, vergroot die kans aanzienlijk.",
+        ],
+        end:
+          "Met Recoveride kies je voor die aanpak. Geen standaard verzekering die pas uitkeert als alles voorbij is, maar een oplossing die gericht is op het moment dat het ertoe doet: direct na de diefstal.",
+      },
+    ],
+    conclusion: {
+      lead:
+        "Een gestolen fiets is meer dan alleen materieel verlies. Het kost tijd, energie en vrijheid.",
+      body:
+        "Door vooraf na te denken over beveiliging en herstel voorkom je dat 'mijn fiets is gestolen, wat nu?' opnieuw een vraag zonder antwoord wordt.",
+    },
+    cta: {
+      text: "Ontdek hoe Recoveride helpt bij fietsdiefstal",
+      link: "/#subscriptions",
+    },
+  }
+
 ];

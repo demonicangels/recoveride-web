@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button, Card, CardContent } from "@mui/material"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, MapPin, Send } from "lucide-react"
 import { SmtpAPI } from "../api/smtpAPI";
 
 export function ContactPage() {
@@ -90,7 +90,7 @@ export function ContactPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-[#4FD1C5]/8 border-none shadow-none">
+          {/* <Card className="bg-[#4FD1C5]/8 border-none shadow-none">
             <CardContent className="p-6">
               <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-4">
                 <Phone className="w-6 h-6 text-[#4FD1C5]" />
@@ -101,7 +101,7 @@ export function ContactPage() {
                 +31 20 123 4567
               </a>
             </CardContent>
-          </Card>
+          </Card> */}
 
           <Card className="bg-[#4FD1C5]/8 border-none shadow-none">
             <CardContent className="p-6">

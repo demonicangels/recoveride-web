@@ -2,6 +2,8 @@
 
 import { Check } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { SmtpAPI } from "../../api/smtpAPI";
+import { ToastContainer, toast } from "react-toastify"
 
 export function SubscriptionsSection() {
 
@@ -35,9 +37,55 @@ export function SubscriptionsSection() {
   ]
 
   const router = useRouter();
+  const api = new SmtpAPI();
+
+  const notify = () => toast.success("Request sent successfully! Our Team will contact you shortly.");
+
+  let user = localStorage.getItem("user");
+
+  const handleBuyRequest = async (planName: string) => {
+
+    if (user) {
+
+      const userData = JSON.parse(user);
+
+      const emailData = {
+        name: userData.name,
+        email: userData.email,
+        phone: userData.phoneNumber
+        ,
+        message: `User ${userData.name} with email ${userData.email} and phone ${userData.phoneNumber} has requested to buy the ${planName} subscription plan. Please contact them to proceed with the purchase.`,
+      };
+
+      const result = await api.sendEmail(emailData)
+
+      if(!result) {
+        alert("There was an issue processing your request. Please try again later.");
+        return;
+      }
+
+      notify();
+
+      const reply = await api.sendAutoReply({ name: userData.name, email: userData.email });
+
+      if(!reply) {
+        alert("There was an issue sending the confirmation email. Please contact support.");
+        return;
+      }
+    }
+  }
 
   return (
     <section id="subscriptions" className="bg-gray-50 py-12 md:py-16 lg:py-24">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+        theme="light"
+       />
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <header className="text-center mb-4">
@@ -92,16 +140,25 @@ export function SubscriptionsSection() {
                 </ul>
 
                 <footer className="mt-auto">
-                  <a
+                  {user ? (<a
                     href="#contact"
                     className="block w-full py-3 sm:py-3.5 px-6 rounded-full text-white font-semibold text-center text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:scale-105"
                     style={{
                       backgroundColor: plan.popular ? "#1A3B5C" : "#d63624",
                     }}
-                    onClick={() => router.push("/#signup")}
+                    onClick={() => handleBuyRequest(plan.name)}
                   >
-                    Get Started
-                  </a>
+                    Buy
+                  </a>) : (<a
+                            href="#contact"
+                            className="block w-full py-3 sm:py-3.5 px-6 rounded-full text-white font-semibold text-center text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:scale-105"
+                            style={{
+                              backgroundColor: plan.popular ? "#1A3B5C" : "#d63624",
+                            }}
+                            onClick={() => router.push("/auth")}
+                          >
+                    Get started
+                  </a>)}
                 </footer>
               </div>
             </article>
@@ -117,3 +174,5 @@ export function SubscriptionsSection() {
     </section>
   )
 }
+
+

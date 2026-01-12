@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import { Box, Container, Card, CardContent, TextField, Button, Typography, Alert, Tabs, Tab } from "@mui/material"
-import { User, Mail, Lock, ArrowLeft } from "lucide-react"
+import { User, Mail, Lock, ArrowLeft, Phone } from "lucide-react"
+import { useRouter } from "next/navigation";
 
 export function AuthPage() {
   const [activeTab, setActiveTab] = useState(0)
@@ -12,9 +13,11 @@ export function AuthPage() {
     email: "",
     password: "",
     confirmPassword: "",
+    phone: "",
   })
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
+  const router = useRouter();
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue)
@@ -27,6 +30,12 @@ export function AuthPage() {
     setLoading(true)
 
     console.log("[v0] Login attempt:", { email: loginData.email })
+
+    let user = JSON.parse(localStorage.getItem("user") || "null");
+
+    if (user && loginData.email === user?.email) {
+      router.push("/profile");
+    }
 
     setTimeout(() => {
       setLoading(false)
@@ -51,6 +60,10 @@ export function AuthPage() {
     setLoading(true)
 
     console.log("[v0] Signup attempt:", { name: signupData.name, email: signupData.email })
+
+    localStorage.setItem("user", JSON.stringify({ name: signupData.name, email: signupData.email, phoneNumber: signupData.phone }));
+
+    router.push("/profile");
 
     setTimeout(() => {
       setLoading(false)
@@ -258,7 +271,6 @@ export function AuthPage() {
                     value={signupData.password}
                     onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
                     required
-                    helperText="Must be at least 8 characters"
                     InputProps={{
                       startAdornment: (
                         <Box sx={{ mr: 1, display: "flex", alignItems: "center" }}>
@@ -284,6 +296,27 @@ export function AuthPage() {
                       startAdornment: (
                         <Box sx={{ mr: 1, display: "flex", alignItems: "center" }}>
                           <Lock size={20} color="#666" />
+                        </Box>
+                      ),
+                    }}
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: 3,
+                      },
+                    }}
+                  />
+
+                  <TextField
+                    fullWidth
+                    label="Phone Number"
+                    type="text"
+                    value={signupData.phone}
+                    onChange={(e) => setSignupData({ ...signupData, phone: e.target.value })}
+                    required
+                    InputProps={{
+                      startAdornment: (
+                        <Box sx={{ mr: 1, display: "flex", alignItems: "center" }}>
+                          <Phone size={20} color="#666" />
                         </Box>
                       ),
                     }}

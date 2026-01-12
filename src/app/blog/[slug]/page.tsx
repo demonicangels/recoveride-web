@@ -3,7 +3,8 @@ import { ArticlePage } from "../../../views/ArticlePage";
 export function generateStaticParams() {
   return [
     { slug: "protect-your-bike-from-theft" },
-    { slug: "bike-theft-netherlands-real-stories"}
+    { slug: "bike-theft-netherlands-real-stories"},
+    { slug: "fiets-gestolen-wat-nu"}
   ];
 }
 
